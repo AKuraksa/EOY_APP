@@ -44,19 +44,23 @@ namespace EOY_APP
             }
         }
 
-        private void SideBarMover_Click(object sender, RoutedEventArgs e)
+        private async void SideBarMover_Click(object sender, RoutedEventArgs e)
         {
-            if(!firstClick) 
+            await MoveWithBar();
+        }
+        private async Task MoveWithBar()
+        {
+            if (!firstClick)
             {
                 Sidebar.MaxWidth = Sidebar.Width;
                 Sidebar.MinWidth = 30;
                 firstClick = true;
             }
-            
+
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(10);
-            timer.Tick += (sender, e) => 
-            {   
+             timer.Tick +=  (sender, e) =>
+            {
                 if (maximalized)
                 {
                     Sidebar.Width -= 10;
@@ -65,7 +69,7 @@ namespace EOY_APP
                         maximalized = false;
                         timer.Stop();
                     }
-                    
+
                 }
                 else
                 {
@@ -75,10 +79,11 @@ namespace EOY_APP
                         maximalized = true;
                         timer.Stop();
                     }
-                    
+
                 }
             };
-            timer.Start();
+             timer.Start();
         }
+       
     }
 }
