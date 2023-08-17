@@ -5,9 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EOY_APP"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Button" Margin="0,217,161,78" HorizontalAlignment="Right" Width="282"/>
-
+        Title="MainWindow"
+        Height="450" Width="800"
+        WindowStyle="None"
+        WindowState="Maximized"
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown">
+    <Grid
+        x:Name="Sidebar" HorizontalAlignment="Left" Width="300">
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF9B00A3" Offset="0"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Button x:Name="SideBarMover" 
+                Content="Button" 
+                HorizontalAlignment="Center" 
+                Margin="0,319,0,0" VerticalAlignment="Top" Height="46" Width="180" Click="SideBarMover_Click" />
     </Grid>
+
 </Window>
