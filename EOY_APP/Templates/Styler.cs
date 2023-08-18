@@ -44,12 +44,8 @@ namespace EOY_APP.Templates
             #endregion
 
 
-            GetBoardStyle(Grid panel,
-            Label workplaceName,
-            Label deviceName,
-            Image state,
-            Button accept,
-            Button decline);
+            GetBoardStyle(panel,
+                );
         }
 
         public async Task GetBoardStyle(Grid panel,
