@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EOY_APP.Templates;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,20 +21,24 @@ namespace EOY_APP
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
-
+ 
     
     public partial class MainWindow : Window
+  
     {
+
+        private readonly Styler _styler;
         bool firstClick = false;
         bool maximalized = true;
-        public MainWindow()
+        public MainWindow(Styler styler)
         {
             InitializeComponent();
+            _styler = styler;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            _styler.CreateBoard();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
