@@ -21,9 +21,6 @@ namespace EOY_APP.Templates
            )
         {
 
-
-
-
             #region BUTTON PROPERITIES
             accept.Content = "Přijmout";
             decline.Content = "Odmítnout";
@@ -43,9 +40,6 @@ namespace EOY_APP.Templates
 
             #endregion
 
-
-            GetBoardStyle(panel,
-                );
         }
 
         public async Task GetBoardStyle(Grid panel,

@@ -21,24 +21,32 @@ namespace EOY_APP
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
- 
-    
+
+   
+
+
     public partial class MainWindow : Window
-  
+
     {
 
-        private readonly Styler _styler;
+
+        private readonly Styler _styler = new Styler();
         bool firstClick = false;
         bool maximalized = true;
-        public MainWindow(Styler styler)
+
+        public MainWindow()
         {
             InitializeComponent();
-            _styler = styler;
+            
         }
+
+
+
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _styler.CreateBoard();
+          
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -51,10 +59,13 @@ namespace EOY_APP
 
         private async void SideBarMover_Click(object sender, RoutedEventArgs e)
         {
-            await MoveWithBar();
+          await MoveBar(Sidebar);
         }
-        private async Task MoveWithBar()
+
+        private async Task MoveBar(object sender)
         {
+            Grid Sidebar = (sender) as Grid;
+
             if (!firstClick)
             {
                 Sidebar.MaxWidth = Sidebar.Width;
@@ -64,7 +75,7 @@ namespace EOY_APP
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(10);
-             timer.Tick +=  (sender, e) =>
+            timer.Tick += (sender, e) =>
             {
                 if (maximalized)
                 {
@@ -87,8 +98,7 @@ namespace EOY_APP
 
                 }
             };
-             timer.Start();
+            timer.Start();
         }
-       
     }
 }
