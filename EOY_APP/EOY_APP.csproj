@@ -8,7 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Forms\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Dto\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Forms\logo.png" />
   </ItemGroup>
 
 </Project>

@@ -5,12 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EOY_APP.Forms"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800"
-        WindowStyle="None"
-        WindowState="Maximized"
-        ResizeMode="NoResize"
+        Title="Login" Height="450" Width="309"
+       
         >
     <Grid>
-        
+
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFF7805"/>
+                <GradientStop Color="#FF3625FF" Offset="1"/>
+                <GradientStop Color="#FFBD1FD8" Offset="0.513"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Border CornerRadius="20" Background="White" Margin="12,10,12,10" Grid.RowSpan="2">
+
+
+        </Border>
+
+        <TextBox x:Name="username_txt" Margin="76,92,74,0" Height="30" Foreground="White" SelectionTextBrush="#FF0079FF" SelectionBrush="White" VerticalAlignment="Top">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="DarkOrange"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+        </TextBox>
+
+        <Image Margin="30,192,105,105" RenderTransformOrigin="0.505,0.558">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="/Forms/logo.png" TileMode="Tile" Stretch="UniformToFill"/>
+            </Image.OpacityMask>
+        </Image>
+
+        <TextBox x:Name="username_txt_Kopírovat1" Margin="76,127,74,0" Height="30" SelectionTextBrush="#FF003CF5" SelectionBrush="White" Foreground="White" VerticalAlignment="Top" TextChanged="username_txt_Kopírovat1_TextChanged">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFF9800"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+        </TextBox>
+        <Button Content="Přihlásit se" Margin="108,184,108,0" Foreground="White" BorderBrush="#FF707070" BorderThickness="2,2,1,2" Height="26" VerticalAlignment="Top" Grid.Row="1">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFF9800"/>
+                    <GradientStop Color="Red" Offset="1"/>
+                    <GradientStop Color="#FFF7D701" Offset="0.52"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+       
+
     </Grid>
+    
 </Window>

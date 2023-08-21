@@ -23,5 +23,10 @@ namespace EOY_APP.Forms
         {
             InitializeComponent();
         }
+
+        private void username_txt_Kopírovat1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
