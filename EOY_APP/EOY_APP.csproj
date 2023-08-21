@@ -8,14 +8,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Forms\8791959.png" />
+    <None Remove="Forms\Bez názvu-3.png" />
+    <None Remove="Forms\Bez názvu-4.png" />
+    <None Remove="Forms\Bez názvu-5.png" />
     <None Remove="Forms\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dto\" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
+    <PackageReference Include="RestSharp.Newtonsoft.Json" Version="1.5.1" />
+    <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="110.2.0" />
+    <PackageReference Include="RestSharp.Serializers.SystemTextJson" Version="106.15.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Forms\8791959.png" />
+    <Resource Include="Forms\Bez názvu-3.png" />
+    <Resource Include="Forms\Bez názvu-4.png" />
+    <Resource Include="Forms\Bez názvu-5.png" />
     <Resource Include="Forms\logo.png" />
   </ItemGroup>
 

@@ -1,4 +1,6 @@
-﻿using EOY_APP.Templates;
+﻿using EOY_APP.Forms;
+using EOY_APP.SharedDTO;
+using EOY_APP.Templates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,15 +31,15 @@ namespace EOY_APP
 
     {
 
-
+        private SharedData _shared;
         private readonly Styler _styler = new Styler();
         bool firstClick = false;
-        bool maximalized = true;
+        bool maximalized = false;
 
-        public MainWindow()
+        public MainWindow(SharedData shared)
         {
             InitializeComponent();
-
+            _shared = shared;
         }
 
 
@@ -60,7 +62,6 @@ namespace EOY_APP
         private async void SideBarMover_Click(object sender, RoutedEventArgs e)
         {
 
-            await MoveBar(Sidebar);
 
 
         }
@@ -72,7 +73,7 @@ namespace EOY_APP
             if (!firstClick)
             {
                 Sidebar.MaxWidth = Sidebar.Width;
-                Sidebar.MinWidth = 30;
+                Sidebar.MinWidth = 170;
                 firstClick = true;
             }
 
@@ -104,8 +105,16 @@ namespace EOY_APP
             timer.Start();
         }
 
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            await MoveBar(Sidebar);
+        }
 
+        private void admin_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Admin administrator = new Admin(_shared);
 
-
+            monitor_grid.Children.Add(administrator);
+        }
     }
 }
