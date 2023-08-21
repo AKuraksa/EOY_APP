@@ -57,16 +57,9 @@ namespace EOY_APP
             }
         }
 
-        private async void SideBarMover_Click(object sender, RoutedEventArgs e)
+        private void SideBarMover_Click(object sender, RoutedEventArgs e)
         {
-          await MoveBar(Sidebar);
-        }
-
-        private async Task MoveBar(object sender)
-        {
-            Grid Sidebar = (sender) as Grid;
-
-            if (!firstClick)
+            if(!firstClick) 
             {
                 Sidebar.MaxWidth = Sidebar.Width;
                 Sidebar.MinWidth = 30;
@@ -75,8 +68,8 @@ namespace EOY_APP
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(10);
-            timer.Tick += (sender, e) =>
-            {
+            timer.Tick += (sender, e) => 
+            {   
                 if (maximalized)
                 {
                     Sidebar.Width -= 10;
@@ -98,7 +91,8 @@ namespace EOY_APP
 
                 }
             };
-            timer.Start();
+             timer.Start();
         }
+       
     }
 }
