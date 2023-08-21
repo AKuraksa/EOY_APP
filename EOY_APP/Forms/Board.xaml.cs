@@ -22,7 +22,7 @@ namespace EOY_APP
     /// </summary>
     /// 
 
-   
+
 
 
     public partial class MainWindow : Window
@@ -37,7 +37,7 @@ namespace EOY_APP
         public MainWindow()
         {
             InitializeComponent();
-            
+
         }
 
 
@@ -46,20 +46,30 @@ namespace EOY_APP
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-          
+
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Escape) 
+            if (e.Key == Key.Escape)
             {
                 Application.Current.Shutdown();
             }
         }
 
-        private void SideBarMover_Click(object sender, RoutedEventArgs e)
+        private async void SideBarMover_Click(object sender, RoutedEventArgs e)
         {
-            if(!firstClick) 
+
+            await MoveBar(Sidebar);
+
+
+        }
+
+        async Task MoveBar(object sender)
+        {
+
+            Grid Sidebar = (sender) as Grid;
+            if (!firstClick)
             {
                 Sidebar.MaxWidth = Sidebar.Width;
                 Sidebar.MinWidth = 30;
@@ -68,8 +78,8 @@ namespace EOY_APP
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(10);
-            timer.Tick += (sender, e) => 
-            {   
+            timer.Tick += (sender, e) =>
+            {
                 if (maximalized)
                 {
                     Sidebar.Width -= 10;
@@ -91,8 +101,11 @@ namespace EOY_APP
 
                 }
             };
-             timer.Start();
+            timer.Start();
         }
-       
+
+
+
+
     }
 }
