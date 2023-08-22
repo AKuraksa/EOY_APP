@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EOY_APP.Forms"
         mc:Ignorable="d"
-        Title="Login" Height="264" Width="309"
+        Title="Login" Height="260" Width="230"
         WindowStartupLocation="CenterScreen"
+        MinWidth="230"
+        MinHeight="260"
         WindowStyle="ToolWindow"
         >
     <Grid>
@@ -24,7 +26,7 @@
             <Image Margin="0,10,0,0" Source="/Forms/8791959.png" Height="57" VerticalAlignment="Top"/>
         </Border>
 
-        <TextBox x:Name="username_txt" Margin="76,92,74,0" Height="30" Foreground="White" SelectionTextBrush="#FF0079FF" SelectionBrush="White" VerticalAlignment="Top">
+        <TextBox x:Name="username_txt" Margin="41,92,39,0" Height="30" Foreground="White" SelectionTextBrush="#FF0079FF" SelectionBrush="White" VerticalAlignment="Top">
             <TextBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="DarkOrange"/>
@@ -42,7 +44,15 @@
             </Image.OpacityMask>
         </Image>
 
-        <PasswordBox x:Name="password_txt"   Margin="76,127,74,0" Height="30" SelectionTextBrush="#FF003CF5" SelectionBrush="White" Foreground="White" VerticalAlignment="Top">
+        <PasswordBox x:Name="password_txt"   Margin="42,126,38,0" Height="30" SelectionTextBrush="#FF003CF5" SelectionBrush="White" Foreground="White" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <PasswordBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.334"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.233"/>
+                </TransformGroup>
+            </PasswordBox.RenderTransform>
             <PasswordBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFF9800"/>
@@ -53,7 +63,7 @@
                 <DropShadowEffect/>
             </PasswordBox.Effect>
         </PasswordBox>
-        <Button x:Name="Login_btn" Content="Přihlásit se" Margin="108,184,108,0" Foreground="White" BorderBrush="#FF707070" BorderThickness="2,2,1,2" Height="26" VerticalAlignment="Top" Grid.Row="1" Click="Login_btn_Click">
+        <Button x:Name="Login_btn" Content="Přihlásit se" Margin="79,0,79,34" Foreground="White" BorderBrush="#FF707070" BorderThickness="2,2,1,2" Click="Login_btn_Click" Height="26" VerticalAlignment="Bottom">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>

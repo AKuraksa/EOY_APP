@@ -10,6 +10,7 @@
         WindowStyle="None"
         WindowState="Maximized"
         ResizeMode="NoResize"
+        
         Loaded="Window_Loaded"
         KeyDown="Window_KeyDown">
     <Grid Background="White">
