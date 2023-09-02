@@ -86,8 +86,6 @@ namespace EOY_APP.Forms
 
             if (MessageBoxResult.Yes == MessageBox.Show($"Opravdu chcete smazat uživatele {selectedLoginDto.FullName}?","Dotaz",MessageBoxButton.YesNo,MessageBoxImage.Question))
             {
-
-
                 if (ltboxUsers.SelectedItem != null)
                 {
                     try

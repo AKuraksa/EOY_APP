@@ -95,9 +95,9 @@
             <Label Content="Heslo" Margin="41,236,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
             <Label Content="Znovu heslo" Margin="41,281,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
             <Label Content="Admin" Margin="41,326,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
-            <Button Content="Změnit" HorizontalAlignment="Left" Margin="41,371,0,0" VerticalAlignment="Top" Height="50" Width="130" ClickMode="Hover"/>
-            <Button Content="Odstranit" HorizontalAlignment="Left" Margin="366,371,0,0" VerticalAlignment="Top" Height="50" Width="130" ClickMode="Hover"/>
->>>>>>> 7c74f08365a5972d0c1fab8744024445b53fd838
+            <Button Content="Změnit" HorizontalAlignment="Left" Margin="41,371,0,0" VerticalAlignment="Top" Height="50" Width="130" ClickMode="Press"/>
+            <Button Content="Odstranit" HorizontalAlignment="Left" Margin="366,371,0,0" VerticalAlignment="Top" Height="50" Width="130" ClickMode="Press"/>
+
         </Grid>
 
     </Grid>
