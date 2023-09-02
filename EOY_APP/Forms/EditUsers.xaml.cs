@@ -35,7 +35,7 @@ namespace EOY_APP.Forms
 
         private async void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            var myClient = new RestClient($"https://localhost:{_parameter.port}/All_Data_FROM_Logins");
+            var myClient = new RestClient($"");
             var request = new RestRequest();
             try
             {
@@ -96,6 +96,11 @@ namespace EOY_APP.Forms
 
                 selectedId.Content=(ltboxUsers.SelectedIndex+1).ToString();
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var MyClientr = RestClient(_parameter.GetApiAdress);
         }
     }
 }

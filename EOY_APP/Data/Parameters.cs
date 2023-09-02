@@ -10,6 +10,13 @@ namespace EOY_APP.Data
     {
         public int port = 7106;
 
+        public string GetApiAdress()
+        {
+            string ApiAdress;
+            return ApiAdress = $"https://localhost:{port}";
 
+
+
+        }
     }
 }
