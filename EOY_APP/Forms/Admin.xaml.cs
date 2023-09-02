@@ -52,5 +52,11 @@ namespace EOY_APP.Forms
             
             
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var edit = new CreateUser();
+            panels.Children.Add(edit);
+        }
     }
 }
