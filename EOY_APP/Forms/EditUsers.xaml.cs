@@ -82,35 +82,37 @@ namespace EOY_APP.Forms
 
         private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            var selectedLoginDto = ltboxUsers.SelectedItem as LoginDto;
-
-            if (MessageBoxResult.Yes == MessageBox.Show($"Opravdu chcete smazat uživatele {selectedLoginDto.FullName}?","Dotaz",MessageBoxButton.YesNo,MessageBoxImage.Question))
+            if (ltboxUsers.SelectedItem != null)
             {
-                if (ltboxUsers.SelectedItem != null)
+                var selectedLoginDto = ltboxUsers.SelectedItem as LoginDto;
+
+                if (MessageBoxResult.Yes == MessageBox.Show($"Opravdu chcete smazat uživatele {selectedLoginDto.FullName}?","Dotaz",MessageBoxButton.YesNo,MessageBoxImage.Question))
                 {
-                    try
-                    {
+               
+                        try
+                        {
                       
 
-                        var myClient = new RestClient($"{_parameter.GetApiAdress()}/DeleteByID");
-                        var request = new RestRequest();
+                            var myClient = new RestClient($"{_parameter.GetApiAdress()}/DeleteByID");
+                            var request = new RestRequest();
 
-                        request.AddQueryParameter("id", selectedLoginDto.id);
-                        var response = myClient.Delete(request);
-                        MessageBox.Show($"Uživatel {selectedLoginDto.FullName} byl odstraněn");
-                        await RefreshList();
-                        ltboxUsers.SelectedIndex = 0;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                            request.AddQueryParameter("id", selectedLoginDto.id);
+                            var response = myClient.Delete(request);
+                            MessageBox.Show($"Uživatel {selectedLoginDto.FullName} byl odstraněn");
+                            await RefreshList();
+                            ltboxUsers.SelectedIndex = 0;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
 
                 }
             }
         }
         private async Task RefreshList()
         {
+            ltboxUsers.SelectedIndex = 0;
             var myClient = new RestClient($"{_parameter.GetApiAdress()}/All_Data_FROM_Logins");
             var request = new RestRequest();
             try
@@ -121,10 +123,6 @@ namespace EOY_APP.Forms
                 ltboxUsers.ItemsSource = usersList;
                 countId.Content = usersList.Count;
                 selectedId.Content = ltboxUsers.SelectedIndex.ToString();
-
-                if (ltboxUsers.SelectedIndex == -1)
-                    selectedId.Content = 0;
-
             }
             catch (Exception ex)
             {
