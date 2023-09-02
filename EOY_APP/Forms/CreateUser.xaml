@@ -5,22 +5,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EOY_APP.Forms"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="800">
     <Grid Background="Pink">
-        <Button Content="Vytvořit uživatele" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Height="40" Width="150"/>
+        <Button Content="Vytvořit uživatele" HorizontalAlignment="Left" Margin="10,327,0,0" VerticalAlignment="Top" Height="40" Width="150"/>
         <Label Content="Vytvoření uživatele" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
         <Label Content="Jméno:" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Příjmení:" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Přihlašovací jméno:" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Heslo:" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Znovu heslo:" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Admin:" HorizontalAlignment="Left" Margin="10,249,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Přihlašovací jméno:" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Heslo:" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Znovu heslo:" HorizontalAlignment="Left" Margin="10,249,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Admin:" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" FontSize="18"/>
         <TextBox x:Name="firstName_txt" HorizontalAlignment="Left" Margin="177,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
         <TextBox x:Name="lastName_txt" HorizontalAlignment="Left" Margin="177,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
-        <TextBox x:Name="userName_txt" HorizontalAlignment="Left" Margin="177,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
-        <PasswordBox x:Name="password_txt" HorizontalAlignment="Left" Margin="177,179,0,0" VerticalAlignment="Top" Width="200" FontSize="18"/>
-        <PasswordBox x:Name="passwordAgain_txt" HorizontalAlignment="Left" Margin="177,218,0,0" VerticalAlignment="Top" Width="200" FontSize="18"/>
-        <CheckBox x:Name="permission_chk" HorizontalAlignment="Left" Margin="177,261,0,0" VerticalAlignment="Top"/>
-
+        <TextBox x:Name="email_txt" HorizontalAlignment="Left" Margin="177,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
+        <TextBox x:Name="userName_txt" HorizontalAlignment="Left" Margin="177,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
+        <PasswordBox x:Name="password_txt" HorizontalAlignment="Left" Margin="177,218,0,0" VerticalAlignment="Top" Width="200" FontSize="18"/>
+        <PasswordBox x:Name="passwordAgain_txt" HorizontalAlignment="Left" Margin="177,257,0,0" VerticalAlignment="Top" Width="200" FontSize="18"/>
+        <CheckBox x:Name="permission_chk" HorizontalAlignment="Left" Margin="177,297,0,0" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>
