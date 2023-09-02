@@ -20,26 +20,35 @@
                     <GradientStop Color="#FFFF7A09" Offset="0.242"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <TextBox x:Name="firstName_txt" Text="{Binding FirstName}" HorizontalAlignment="Left" Margin="22,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="lastName_txt" Text="{Binding LastName}" HorizontalAlignment="Left" Margin="147,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="username_txt" Text="{Binding Username}" HorizontalAlignment="Left" Margin="22,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <CheckBox x:Name="permission_chk" Content="Admin" HorizontalAlignment="Left" Margin="22,250,0,0" VerticalAlignment="Top" IsChecked="{Binding Permission}"/>
+            <TextBox x:Name="firstName_txt" Text="{Binding FirstName}" Margin="246,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="40" FontSize="18" HorizontalAlignment="Left"/>
+            <TextBox x:Name="lastName_txt" Text="{Binding LastName}" Margin="246,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="40" FontSize="18" HorizontalAlignment="Left" />
+            <TextBox x:Name="username_txt" Text="{Binding Username}" Margin="246,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="40" FontSize="18" HorizontalAlignment="Left"/>
+            <CheckBox x:Name="permission_chk" Content="" Margin="246,338,0,0" VerticalAlignment="Top" IsChecked="{Binding Permission}" FontSize="20" Height="16" Width="16" ClickMode="Press" Cursor="ArrowCD" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0"/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+            </CheckBox>
             <Label x:Name="id_txt" Content="{Binding id}" Margin="588,0,0,0" VerticalAlignment="Top" FontSize="20" Height="37" FontWeight="Bold"/>
-            <PasswordBox x:Name="password_txt"  HorizontalAlignment="Left" Margin="22,175,0,0" VerticalAlignment="Top" Width="120"/>
-            <PasswordBox x:Name="passwordAgain_txt" HorizontalAlignment="Left" Margin="22,209,0,0" VerticalAlignment="Top" Width="120"/>
-            <Button Content="" Margin="0,6,0,0" VerticalAlignment="Top" Height="23" BorderThickness="0,0,0,0" Click="Button_Click" HorizontalAlignment="Left" Width="39">
+            <PasswordBox x:Name="password_txt" Margin="246,236,0,0" VerticalAlignment="Top" Width="250" Height="40" FontSize="18" HorizontalAlignment="Left"/>
+            <PasswordBox x:Name="passwordAgain_txt" Margin="246,281,0,0" VerticalAlignment="Top" Width="250" Height="40" FontSize="18" HorizontalAlignment="Left"/>
+            <Button Content="" Margin="0,9,0,0" VerticalAlignment="Top" Height="38" BorderThickness="0,0,0,0" Click="Button_Click" HorizontalAlignment="Left" Width="53">
                 <Button.Background>
                     <ImageBrush ImageSource="/Forms/leftArr.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Button Content="" Margin="110,7,0,0" VerticalAlignment="Top" Height="23" BorderThickness="0,0,0,0" Click="Button_Click_1" HorizontalAlignment="Left" Width="32">
+            <Button Content="" Margin="150,11,0,0" VerticalAlignment="Top" Height="38" BorderThickness="0,0,0,0" Click="Button_Click_1" HorizontalAlignment="Left" Width="45">
                 <Button.Background>
                     <ImageBrush ImageSource="/Forms/rightArr.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Label x:Name="selectedId" Content="0" Margin="39,0,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="20" HorizontalAlignment="Left" Width="21"/>
+            <Label x:Name="selectedId" Content="0" Margin="53,0,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" HorizontalAlignment="Left" Width="30" Height="60"/>
             <Label HorizontalAlignment="Left" Margin="147,3,0,0" VerticalAlignment="Top" Width="48"/>
-            <Label Content="z" Margin="61,5,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="16">
+            <Label Content="z" Margin="84,9,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="22" Height="41" FontSize="18">
                 <Label.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFE2E2E2"/>
@@ -47,11 +56,68 @@
                     </LinearGradientBrush>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="countId" Content="0" Margin="82,0,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="20" HorizontalAlignment="Left" Width="24"/>
-            <Label Content="Jméno" Margin="20,71,614,0" VerticalAlignment="Top"/>
-            <Label Content="Příjmení" Margin="147,71,479,0" VerticalAlignment="Top"/>
-            <Label Content="Přihlašovací jméno" Margin="19,113,551,0" VerticalAlignment="Top"/>
-            <Label Content="Heslo" Margin="19,152,620,0" VerticalAlignment="Top"/>
+            <Label x:Name="countId" Content="0" Margin="112,0,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" HorizontalAlignment="Left" Width="33" Height="60"/>
+            <Label Content="Jméno" Margin="41,101,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
+            <Label Content="Příjmení" Margin="41,146,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
+            <Label Content="Přihlašovací jméno" Margin="41,191,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
+            <Label Content="Heslo" Margin="41,236,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
+            <Label Content="Znovu heslo" Margin="41,281,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
+            <Label Content="Admin" Margin="41,326,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
+            <Button Content="Změnit" HorizontalAlignment="Left" Margin="41,371,0,0" VerticalAlignment="Top" Height="50" Width="130" ClickMode="Hover"/>
+        </Grid>
+        <Grid Margin="121,0,0,0">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF3F3F3"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FFEAEFBB" Offset="0.794"/>
+                    <GradientStop Color="#FFFF7A09" Offset="0.242"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <TextBox x:Name="firstName_txt1" Text="{Binding FirstName}" Margin="246,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="40" FontSize="18" HorizontalAlignment="Left"/>
+            <TextBox x:Name="lastName_txt1" Text="{Binding LastName}" Margin="246,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="40" FontSize="18" HorizontalAlignment="Left" />
+            <TextBox x:Name="username_txt1" Text="{Binding Username}" Margin="246,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="40" FontSize="18" HorizontalAlignment="Left"/>
+            <CheckBox x:Name="permission_chk1" Content="" Margin="246,338,0,0" VerticalAlignment="Top" IsChecked="{Binding Permission}" FontSize="20" Height="16" Width="16" ClickMode="Press" Cursor="ArrowCD" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <CheckBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0"/>
+                    </TransformGroup>
+                </CheckBox.RenderTransform>
+            </CheckBox>
+            <Label x:Name="id_txt1" Content="{Binding id}" Margin="588,0,0,0" VerticalAlignment="Top" FontSize="20" Height="37" FontWeight="Bold"/>
+            <PasswordBox x:Name="password_txt1" Margin="246,236,0,0" VerticalAlignment="Top" Width="250" Height="40" FontSize="18" HorizontalAlignment="Left"/>
+            <PasswordBox x:Name="passwordAgain_txt1" Margin="246,281,0,0" VerticalAlignment="Top" Width="250" Height="40" FontSize="18" HorizontalAlignment="Left"/>
+            <Button Content="" Margin="0,9,0,0" VerticalAlignment="Top" Height="38" BorderThickness="0,0,0,0" Click="Button_Click" HorizontalAlignment="Left" Width="53">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Forms/leftArr.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button Content="" Margin="150,11,0,0" VerticalAlignment="Top" Height="38" BorderThickness="0,0,0,0" Click="Button_Click_1" HorizontalAlignment="Left" Width="45">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Forms/rightArr.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Label x:Name="selectedId1" Content="0" Margin="53,0,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" HorizontalAlignment="Left" Width="30" Height="60"/>
+            <Label Content="z" Margin="84,9,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="22" Height="41" FontSize="18">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE2E2E2"/>
+                        <GradientStop Color="#FFA5A5A5" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+            <Label x:Name="countId1" Content="0" Margin="112,0,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" HorizontalAlignment="Left" Width="33" Height="60"/>
+            <Label Content="Jméno" Margin="41,101,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
+            <Label Content="Příjmení" Margin="41,146,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
+            <Label Content="Přihlašovací jméno" Margin="41,191,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
+            <Label Content="Heslo" Margin="41,236,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
+            <Label Content="Znovu heslo" Margin="41,281,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
+            <Label Content="Admin" Margin="41,326,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
+            <Button Content="Změnit" HorizontalAlignment="Left" Margin="41,371,0,0" VerticalAlignment="Top" Height="50" Width="130" ClickMode="Hover"/>
+            <Button Content="Odstranit" HorizontalAlignment="Left" Margin="366,371,0,0" VerticalAlignment="Top" Height="50" Width="130" ClickMode="Hover"/>
         </Grid>
 
     </Grid>
