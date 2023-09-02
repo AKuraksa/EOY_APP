@@ -37,7 +37,7 @@
                     <ImageBrush ImageSource="/Forms/rightArr.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Label x:Name="selectedId1" Content="0" Margin="53,0,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" HorizontalAlignment="Left" Width="30" Height="60"/>
+            <Label x:Name="selectedId" Content="0" Margin="53,0,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" HorizontalAlignment="Left" Width="30" Height="60"/>
             <Label Content="z" Margin="84,9,0,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left" Width="22" Height="41" FontSize="18">
                 <Label.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -46,7 +46,7 @@
                     </LinearGradientBrush>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="countId1" Content="0" Margin="112,0,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" HorizontalAlignment="Left" Width="33" Height="60"/>
+            <Label x:Name="countId" Content="0" Margin="112,0,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" HorizontalAlignment="Left" Width="33" Height="60"/>
             <Label Content="Jméno" Margin="41,101,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
             <Label Content="Příjmení" Margin="41,146,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
             <Label Content="Přihlašovací jméno" Margin="41,191,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
@@ -54,7 +54,7 @@
             <Label Content="Znovu heslo" Margin="41,281,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
             <Label Content="Admin" Margin="41,326,0,0" VerticalAlignment="Top" FontSize="20" Height="40" Width="200" HorizontalAlignment="Left"/>
             <Button Content="Změnit" HorizontalAlignment="Left" Margin="41,371,0,0" VerticalAlignment="Top" Height="50" Width="130" ClickMode="Press"/>
-            <Button Content="Odstranit" HorizontalAlignment="Left" Margin="366,371,0,0" VerticalAlignment="Top" Height="50" Width="130" ClickMode="Press"/>
+            <Button Content="Odstranit" HorizontalAlignment="Left" Margin="366,371,0,0" VerticalAlignment="Top" Height="50" Width="130" ClickMode="Press" Click="Button_Click_2"/>
 
         </Grid>
 
