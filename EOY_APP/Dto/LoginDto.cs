@@ -25,6 +25,13 @@ namespace EOY_APP.Dto
         public string FirstName { get; set; }
         [JsonPropertyName("lastName")]
         public string LastName { get; set; }
+        [JsonPropertyName("permission")]
+        public bool Permission { get; set; }
+
+        public string FullName
+        {
+            get { return $"{FirstName} {LastName}"; }
+        }
 
     }
 }

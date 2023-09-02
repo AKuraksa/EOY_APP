@@ -33,14 +33,24 @@ namespace EOY_APP.Forms
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-          var userInfo = _shared.LoginDtos;
+            //  var userInfo = _shared.LoginDtos;
 
-            foreach (var item in userInfo)
-            {
-                nameUser.Text = $"{item.FirstName} {item.LastName}";
-                idUser.Text = $"{item.id}";
-                mailUser.Text = $"{item.Email}";
-            }
+            //    foreach (var item in userInfo)
+            //    {
+            //        nameUser.Text = $"{item.FirstName} {item.LastName}";
+            //        idUser.Text = $"{item.id}";
+            //        mailUser.Text = $"{item.Email}";
+            //    }
+        }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var edit = new EditUsers();
+            panels.Children.Add(edit);
+            
+          
+            
+            
         }
     }
 }
