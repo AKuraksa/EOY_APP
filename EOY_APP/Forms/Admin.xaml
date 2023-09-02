@@ -9,7 +9,7 @@
              Loaded="UserControl_Loaded" Width="auto" Height="807">
     <Grid  HorizontalAlignment="Left" Width="1524" Name="displayOther" Background="White">
         <WrapPanel Margin="532,0,532,728">
-            <Button Content="Vytvořit uživatele" Height="78" Width="115" Foreground="#FFFBFBFB">
+            <Button Content="Vytvořit uživatele" Height="78" Width="115" Foreground="#FFFBFBFB" Click="Button_Click_1">
                 <Button.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black"/>
