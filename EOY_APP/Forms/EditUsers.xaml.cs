@@ -35,25 +35,7 @@ namespace EOY_APP.Forms
 
         private async void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            var myClient = new RestClient($"");
-            var request = new RestRequest();
-            try
-            {
-                var response = await myClient.GetAsync(request);
-                var content = response.Content;
-                var usersList = JsonSerializer.Deserialize<List<LoginDto>>(content);
-                ltboxUsers.ItemsSource = usersList;
-                countId.Content = usersList.Count;
-                selectedId.Content = ltboxUsers.SelectedIndex.ToString();
-
-                if (ltboxUsers.SelectedIndex == -1)
-                    selectedId.Content = 0;
-            
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            await RefreshList();
 
         }
 
@@ -98,9 +80,59 @@ namespace EOY_APP.Forms
             }
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            var MyClientr = RestClient(_parameter.GetApiAdress);
+            var selectedLoginDto = ltboxUsers.SelectedItem as LoginDto;
+
+            if (MessageBoxResult.Yes == MessageBox.Show($"Opravdu chcete smazat uživatele {selectedLoginDto.FullName}?","Dotaz",MessageBoxButton.YesNo,MessageBoxImage.Question))
+            {
+
+
+                if (ltboxUsers.SelectedItem != null)
+                {
+                    try
+                    {
+                      
+
+                        var myClient = new RestClient($"{_parameter.GetApiAdress()}/DeleteByID");
+                        var request = new RestRequest();
+
+                        request.AddQueryParameter("id", selectedLoginDto.id);
+                        var response = myClient.Delete(request);
+                        MessageBox.Show($"Uživatel {selectedLoginDto.FullName} byl odstraněn");
+                        await RefreshList();
+                        ltboxUsers.SelectedIndex = 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                }
+            }
         }
+        private async Task RefreshList()
+        {
+            var myClient = new RestClient($"{_parameter.GetApiAdress()}/All_Data_FROM_Logins");
+            var request = new RestRequest();
+            try
+            {
+                var response = await myClient.GetAsync(request);
+                var content = response.Content;
+                var usersList = JsonSerializer.Deserialize<List<LoginDto>>(content);
+                ltboxUsers.ItemsSource = usersList;
+                countId.Content = usersList.Count;
+                selectedId.Content = ltboxUsers.SelectedIndex.ToString();
+
+                if (ltboxUsers.SelectedIndex == -1)
+                    selectedId.Content = 0;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }
