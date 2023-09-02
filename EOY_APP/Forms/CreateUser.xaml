@@ -7,6 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF3F3F3"/>
+                <GradientStop Color="White" Offset="1"/>
+                <GradientStop Color="#FFEAEFBB" Offset="0.794"/>
+                <GradientStop Color="#FFFF7A09" Offset="0.242"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Button Content="Button" HorizontalAlignment="Left" Margin="360,272,0,0" VerticalAlignment="Top" Height="51" Width="116"/>
 
     </Grid>
