@@ -67,6 +67,7 @@ namespace EOY_APP.Forms
                     {
                         MainWindow mw = new MainWindow(sharedData);
                         mw.Show();
+                        this.Close();
                     }
                     else
                     {

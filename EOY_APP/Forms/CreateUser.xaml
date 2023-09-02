@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800">
     <Grid Background="Pink">
-        <Button Content="Vytvořit uživatele" HorizontalAlignment="Left" Margin="10,327,0,0" VerticalAlignment="Top" Height="40" Width="150"/>
+        <Button x:Name="createUser_btn" Content="Vytvořit uživatele" HorizontalAlignment="Left" Margin="10,327,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="createUser_btn_Click"/>
         <Label Content="Vytvoření uživatele" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
         <Label Content="Jméno:" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Příjmení:" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" FontSize="18"/>
