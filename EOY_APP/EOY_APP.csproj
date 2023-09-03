@@ -12,6 +12,7 @@
     <None Remove="Forms\Bez názvu-3.png" />
     <None Remove="Forms\Bez názvu-4.png" />
     <None Remove="Forms\Bez názvu-5.png" />
+    <None Remove="Forms\icons8-computer-100.png" />
     <None Remove="Forms\leftArr.png" />
     <None Remove="Forms\logo.png" />
     <None Remove="Forms\rightArr.png" />
@@ -30,6 +31,7 @@
     <Resource Include="Forms\Bez názvu-3.png" />
     <Resource Include="Forms\Bez názvu-4.png" />
     <Resource Include="Forms\Bez názvu-5.png" />
+    <Resource Include="Forms\icons8-computer-100.png" />
     <Resource Include="Forms\leftArr.png" />
     <Resource Include="Forms\logo.png" />
     <Resource Include="Forms\rightArr.png" />

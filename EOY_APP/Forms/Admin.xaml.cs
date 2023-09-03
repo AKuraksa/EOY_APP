@@ -67,5 +67,12 @@ namespace EOY_APP.Forms
             panels.Children.Clear();
             panels.Children.Add(panel);
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            var panel = new EditIssues();
+            panels.Children.Clear();
+            panels.Children.Add(panel);
+        }
     }
 }
