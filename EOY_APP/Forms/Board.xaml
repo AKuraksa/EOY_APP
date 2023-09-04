@@ -6,67 +6,87 @@
         xmlns:local="clr-namespace:EOY_APP"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="1080" Width="1980"
+        Width="1980" Height="1080"
         WindowStyle="None"
         WindowState="Maximized"
         ResizeMode="NoResize"
         
         Loaded="Window_Loaded"
         KeyDown="Window_KeyDown">
-    <Grid Background="White">
-
-        <Grid x:Name="Sidebar" HorizontalAlignment="Left" Width="170">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFFF5200"/>
-                    <GradientStop Color="#FF0542FD" Offset="1"/>
-                    <GradientStop Color="#FFFDAE00" Offset="0.327"/>
-                    <GradientStop Color="#FFE12DFF" Offset="0.601"/>
-                    <GradientStop Color="#FF0206E4" Offset="0.82"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <Image Height="81" Margin="0,0,1,0" VerticalAlignment="Top" Source="/Forms/Pictures/8791959.png"/>
-            <Button Content="&#xA;" HorizontalAlignment="Center"  Margin="0,86,0,0" VerticalAlignment="Top" Height="65" Width="98" Click="Button_Click" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Foreground="White" FontSize="16" BorderThickness="0,0,0,0">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Forms/Pictures/Bez názvu-4.png" Stretch="Uniform">
-                        <ImageBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0"/>
-                                <SkewTransform AngleX="0" CenterX="0"/>
-                                <RotateTransform CenterX="0"/>
-                                <TranslateTransform Y="0" X="0"/>
-                            </TransformGroup>
-                        </ImageBrush.RelativeTransform>
-                    </ImageBrush>
-                </Button.Background>
-            </Button>
-            <Button x:Name="admin_btn" Click="admin_btn_Click" Content="&#xA;" HorizontalAlignment="Center"  Margin="0,156,0,0" VerticalAlignment="Top" Height="65" Width="98"  RenderTransformOrigin="0.5,0.5" Cursor="Hand" Foreground="White" FontSize="16" BorderThickness="0,0,0,0">
-                <Button.Background>
-                    <ImageBrush ImageSource="/Forms/Pictures/Bez názvu-5.png" Stretch="Uniform">
-                        <ImageBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0"/>
-                                <SkewTransform AngleX="0" CenterX="0"/>
-                                <RotateTransform CenterX="0"/>
-                                <TranslateTransform Y="0" X="0"/>
-                            </TransformGroup>
-                        </ImageBrush.RelativeTransform>
-                    </ImageBrush>
-                </Button.Background>
-            </Button>
-
-
-
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Background="Yellow">
+            <Image Height="90" Margin="30,0,0,0" VerticalAlignment="Center" Source="/Forms/Pictures/8791959.png" HorizontalAlignment="Left" Width="213"/>
+            <Label x:Name="clockLabel" Content="00:00" Margin="0,0,117,-7" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right" Width="67"/>
+            <Label x:Name="dateLabel" Content="01.01.0001" Margin="0,0,-2,-7" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right" Width="124"/>
+            <Grid Margin="0,5,4,29" Background="White" HorizontalAlignment="Right" Width="180">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label x:Name="userLabel" Content="jméno příjmení" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Forms/icons8-user-60.png" Stretch="Uniform"/>
+                    </Grid.Background>
+                </Grid>
+            </Grid>
         </Grid>
-        <Grid Margin="175,0,0,0"/>
+        <Grid Grid.Row="1">
+            <Grid x:Name="Sidebar" HorizontalAlignment="Left" Width="170">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFF5200"/>
+                        <GradientStop Color="#FF0542FD" Offset="1"/>
+                        <GradientStop Color="#FFFDAE00" Offset="0.327"/>
+                        <GradientStop Color="#FFE12DFF" Offset="0.601"/>
+                        <GradientStop Color="#FF0206E4" Offset="0.82"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
 
-        <Grid x:Name="monitor_grid" Margin="175,0,0,0">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="White"/>
-                    <GradientStop Color="#FFFFBD09" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
+                <Button Content="&#xA;" HorizontalAlignment="Center"  Margin="0,86,0,0" VerticalAlignment="Top" Height="65" Width="98" Click="Button_Click" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Foreground="White" FontSize="16" BorderThickness="0,0,0,0">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Forms/Pictures/Bez názvu-4.png" Stretch="Uniform">
+                            <ImageBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0"/>
+                                    <SkewTransform AngleX="0" CenterX="0"/>
+                                    <RotateTransform CenterX="0"/>
+                                    <TranslateTransform Y="0" X="0"/>
+                                </TransformGroup>
+                            </ImageBrush.RelativeTransform>
+                        </ImageBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="admin_btn" Click="admin_btn_Click" Content="&#xA;" HorizontalAlignment="Center"  Margin="0,156,0,0" VerticalAlignment="Top" Height="65" Width="98"  RenderTransformOrigin="0.5,0.5" Cursor="Hand" Foreground="White" FontSize="16" BorderThickness="0,0,0,0">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Forms/Pictures/Bez názvu-5.png" Stretch="Uniform">
+                            <ImageBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0"/>
+                                    <SkewTransform AngleX="0" CenterX="0"/>
+                                    <RotateTransform CenterX="0"/>
+                                    <TranslateTransform Y="0" X="0"/>
+                                </TransformGroup>
+                            </ImageBrush.RelativeTransform>
+                        </ImageBrush>
+                    </Button.Background>
+                </Button>
+
+
+
+            </Grid>
+            <Grid x:Name="monitor_grid" Margin="175,0,0,0">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="#FFFFBD09" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
         </Grid>
 
 
