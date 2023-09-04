@@ -32,12 +32,12 @@
             <PasswordBox x:Name="passwordAgain_txt" Margin="246,329,0,0" VerticalAlignment="Top" Width="250" Height="40" FontSize="18" HorizontalAlignment="Left"/>
             <Button Content="" Margin="0,9,0,0" VerticalAlignment="Top" Height="38" BorderThickness="0,0,0,0"  Click="Button_Click" HorizontalAlignment="Left" Width="53">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Forms/leftArr.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="/Forms/Pictures/leftArr.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <Button Content="" Margin="150,11,0,0" VerticalAlignment="Top" Height="38" BorderThickness="0,0,0,0"  Click="Button_Click_1" HorizontalAlignment="Left" Width="45">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Forms/rightArr.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="/Forms/Pictures/rightArr.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <Label x:Name="selectedId" Content="0" Margin="53,0,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="24" HorizontalAlignment="Left" Width="30" Height="60"/>

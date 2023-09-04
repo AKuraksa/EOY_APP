@@ -27,14 +27,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Forms\8791959.png" />
-    <Resource Include="Forms\Bez názvu-3.png" />
-    <Resource Include="Forms\Bez názvu-4.png" />
-    <Resource Include="Forms\Bez názvu-5.png" />
-    <Resource Include="Forms\icons8-computer-100.png" />
-    <Resource Include="Forms\leftArr.png" />
-    <Resource Include="Forms\logo.png" />
-    <Resource Include="Forms\rightArr.png" />
+    <Resource Include="Forms\Pictures\8791959.png" />
+    <Resource Include="Forms\Pictures\Bez názvu-3.png" />
+    <Resource Include="Forms\Pictures\Bez názvu-4.png" />
+    <Resource Include="Forms\Pictures\Bez názvu-5.png" />
+    <Resource Include="Forms\Pictures\icons8-computer-100.png" />
+    <Resource Include="Forms\Pictures\leftArr.png" />
+    <Resource Include="Forms\Pictures\logo.png" />
+    <Resource Include="Forms\Pictures\rightArr.png" />
   </ItemGroup>
 
 </Project>

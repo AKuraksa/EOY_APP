@@ -5,15 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EOY_APP.Forms"
         mc:Ignorable="d"
-        Title="Login" Height="260" Width="230"
-        WindowStartupLocation="CenterScreen"
-        MinWidth="230"
-        MinHeight="260"
+        Title="Login"
+        Width="800" Height="550"
+        MinWidth="650" MinHeight="400"
         WindowStyle="ToolWindow"
-        >
+        WindowState="Maximized">
     <Grid>
-
-
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="350" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*" />
+            <ColumnDefinition Width="60*" MaxWidth="600" />
+            <ColumnDefinition Width="20*" />
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FFFF7805"/>
@@ -22,61 +29,32 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Border CornerRadius="20" Background="White" Margin="12,10,12,10" Grid.RowSpan="2">
-            <Image Margin="0,10,0,0" Source="/Forms/8791959.png" Height="57" VerticalAlignment="Top"/>
-        </Border>
-
-        <TextBox x:Name="username_txt" Margin="41,92,39,0" Height="30" Foreground="White" SelectionTextBrush="#FF0079FF" SelectionBrush="White" VerticalAlignment="Top">
-            <TextBox.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="DarkOrange"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </TextBox.Background>
-            <TextBox.Effect>
-                <DropShadowEffect/>
-            </TextBox.Effect>
-        </TextBox>
-
-        <Image Margin="30,192,105,105" RenderTransformOrigin="0.505,0.558">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="/Forms/logo.png" TileMode="Tile" Stretch="UniformToFill"/>
-            </Image.OpacityMask>
-        </Image>
-
-        <PasswordBox x:Name="password_txt"   Margin="42,126,38,0" Height="30" SelectionTextBrush="#FF003CF5" SelectionBrush="White" Foreground="White" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-            <PasswordBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.334"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0.233"/>
-                </TransformGroup>
-            </PasswordBox.RenderTransform>
-            <PasswordBox.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFFF9800"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </PasswordBox.Background>
-            <PasswordBox.Effect>
-                <DropShadowEffect/>
-            </PasswordBox.Effect>
-        </PasswordBox>
-        <Button x:Name="Login_btn" Content="Přihlásit se" Margin="79,0,79,34" Foreground="White" BorderBrush="#FF707070" BorderThickness="2,2,1,2" Click="Login_btn_Click" Height="26" VerticalAlignment="Bottom">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFFF9800"/>
-                    <GradientStop Color="Red" Offset="1"/>
-                    <GradientStop Color="#FFF7D701" Offset="0.52"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-
-
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Border CornerRadius="20" Background="White">
+                <Image Margin="0,10,0,0" Source="/Forms/Pictures/8791959.png" Height="57" VerticalAlignment="Top"/>
+            </Border>
+            <Label Content="Přihlašovací jméno:" Margin="40,90,40,0" FontSize="14" Height="30" VerticalAlignment="Top"/>
+            <TextBox x:Name="username_txt" Margin="40,120,40,0" FontSize="18" Height="26" VerticalAlignment="Top" />
+            <Label Content="Heslo:" Margin="40,160,40,0" FontSize="14" Height="30" VerticalAlignment="Top"/>
+            <PasswordBox x:Name="password_txt" Margin="40,190,40,0" RenderTransformOrigin="0.5,0.5" FontSize="18" Height="26" VerticalAlignment="Top">
+                <PasswordBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.334"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.233"/>
+                    </TransformGroup>
+                </PasswordBox.RenderTransform>
+            </PasswordBox>
+            <Button x:Name="Login_btn" Content="Přihlásit se" Margin="79,256,79,0" Foreground="White" BorderBrush="#FF707070" BorderThickness="2,2,1,2" Click="Login_btn_Click" Height="45" VerticalAlignment="Top">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFF9800"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                        <GradientStop Color="#FFF7D701" Offset="0.52"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
     </Grid>
-
 </Window>
