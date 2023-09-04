@@ -119,17 +119,69 @@ namespace EOY_APP
             timer.Start();
         }
 
-
-        //private async void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    await MoveBar(Sidebar);
-        //}
-
-        private void admin_btn_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            Admin administrator = new Admin(_shared);
+            await Mover(adminPanel);
+        }
 
-            monitor_grid.Children.Add(administrator);
+       private async Task Mover(Border bdr)
+        {
+          
+            if (bdr != null)
+            {
+                var moverdown = new DispatcherTimer();
+                var moverup = new DispatcherTimer();
+
+                moverdown.Interval = TimeSpan.FromMilliseconds(10);
+                moverup.Interval = TimeSpan.FromMilliseconds(10);
+                if (bdr.Height == bdr.MaxHeight)
+                    moverup.Start();
+                else if (bdr.Height == bdr.MinHeight)
+                    moverdown.Start();
+
+                moverdown.Tick += (sender, e) =>
+                {
+                    bdr.Height += 10;
+                    if (bdr.Height == bdr.MaxHeight)
+                        moverdown.Stop();
+                };
+
+                moverup.Tick += (sender, e) =>
+                {
+                    bdr.Height -= 10;
+                    if (bdr.Height == bdr.MinHeight)
+                        moverup.Stop();
+                };
+            }
+           
+        }
+
+        private void CreateUser_Click(object sender, RoutedEventArgs e)
+        {
+            var createUser = new CreateUser();
+            wall.Children.Clear();
+            wall.Children.Add(createUser);
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var createUser = new EditUsers();
+            wall.Children.Clear();
+            wall.Children.Add(createUser);
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            var createUser = new Reports();
+            wall.Children.Clear();
+            wall.Children.Add(createUser);
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            var createUser = new EditIssues();
+            wall.Children.Clear();
+            wall.Children.Add(createUser);
         }
     }
 }
