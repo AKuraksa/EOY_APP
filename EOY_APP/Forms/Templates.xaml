@@ -3,14 +3,12 @@
     /// Created : 17-03-2022
     /// YouTube Channel : C# Design Pro 
     /// </Summary>-->
-    
-    <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--// Menu with SubMenu Template //-->
 
-    <ControlTemplate x:Key="Menu_SubMenu_Template"
-                     TargetType="{x:Type MenuItem}">
+    <ControlTemplate x:Key="Menu_SubMenu_Template" TargetType="{x:Type MenuItem}">
 
         <Border x:Name="border"
                 Background="#2E333A"
@@ -135,8 +133,7 @@
 
     <!--// Main Menu Template //-->
 
-    <ControlTemplate x:Key="Menu_Template"
-                     TargetType="{x:Type MenuItem}">
+    <ControlTemplate x:Key="MenuTemplate" TargetType="MenuItem">
 
         <Border x:Name="border"
                 Background="#2E333A"

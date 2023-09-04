@@ -6,9 +6,10 @@
              xmlns:local="clr-namespace:EOY_APP.Forms"
              mc:Ignorable="d" 
              Name="display"
-             Loaded="UserControl_Loaded" Width="auto" Height="807">
-    <Grid  HorizontalAlignment="Left" Width="1524" Name="displayOther" Background="White">
-        <WrapPanel Margin="532,0,532,728">
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="500" d:DesignWidth="1000">
+    <Grid Name="displayOther" Background="White">
+        <WrapPanel HorizontalAlignment="Center">
             <Button Content="Vytvořit uživatele" Height="78" Width="115" Foreground="#FFFBFBFB" Click="Button_Click_1">
                 <Button.BorderBrush>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
