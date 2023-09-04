@@ -23,7 +23,7 @@
             <Label x:Name="clockLabel" Content="00:00" Margin="0,0,117,-7" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right" Width="67"/>
             <Label x:Name="dateLabel" Content="01.01.0001" Margin="0,0,-2,-7" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right" Width="124"/>
             <Label Content="Počet aktivních uživatelů:" Margin="0,10,30,10" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center"/>
-            <Grid Margin="0,5,4,29" Background="White" HorizontalAlignment="Right" Width="180">
+            <Grid Margin="0,5,4,29" Background="Transparent" HorizontalAlignment="Right" Width="180">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -31,7 +31,7 @@
                 <Label x:Name="userLabel" Content="jméno příjmení" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
                 <Grid>
                     <Grid.Background>
-                        <ImageBrush ImageSource="/Forms/icons8-user-60.png" Stretch="Uniform"/>
+                        <ImageBrush ImageSource="/Forms/Pictures/user.png" Stretch="Uniform"/>
                     </Grid.Background>
                 </Grid>
             </Grid>

@@ -8,83 +8,25 @@
              Name="display"
              Loaded="UserControl_Loaded"
              d:DesignHeight="500" d:DesignWidth="1000">
-    <Grid Name="displayOther" Background="White">
-        <WrapPanel HorizontalAlignment="Center">
-            <Button Content="Vytvořit uživatele" Height="78" Width="115" Foreground="#FFFBFBFB" Click="Button_Click_1">
-                <Button.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.BorderBrush>
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
-            </Button>
-            <Button Content="Editovat uživatele" Height="78" Width="115" Foreground="#FFFBFBFB" Click="Button_Click">
-                <Button.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.BorderBrush>
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
-            </Button>
-            <Button Content="Reports" Height="78" Width="115" Foreground="#FFFBFBFB" Click="Button_Click_2">
-                <Button.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.BorderBrush>
-                <Button.Background>
-                    <RadialGradientBrush>
-                        <GradientStop Color="#FFFF6A01"/>
-                        <GradientStop Color="White" Offset="1"/>
-                        <GradientStop Color="White" Offset="0.83"/>
-                        <GradientStop Color="White" Offset="0.781"/>
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF0061FF" Offset="0.222"/>
-                        <GradientStop Color="#FF2696FF" Offset="0.546"/>
-                    </RadialGradientBrush>
-                </Button.Background>
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
-            </Button>
-            <Button Content="Editace hlášek" Height="78" Width="115" Foreground="#FFFBFBFB" Click="Button_Click_3">
-                <Button.BorderBrush>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.BorderBrush>
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
-            </Button>
-        </WrapPanel>
-        <Grid x:Name="panels" Margin="0,84,0,0"/>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Vytvořit uživatele" Height="50" Click="addUser"/>
+            <Button Grid.Column="1" Content="Editovat uživatele" Height="50" Click="editUser"/>
+            <Button Grid.Column="2" Content="Reporty" Height="50" Click="reports"/>
+            <Button Grid.Column="3" Content="Editace hlášek" Height="50" Click="editReports"/>
+        </Grid>
+        
+        <Grid x:Name="panels" Grid.Row="1"/>
 
     </Grid>
 

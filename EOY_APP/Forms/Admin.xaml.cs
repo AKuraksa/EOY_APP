@@ -43,7 +43,7 @@ namespace EOY_APP.Forms
             //    }
         }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
+    private void editUser(object sender, RoutedEventArgs e)
         {
             var panel = new EditUsers();
             panels.Children.Clear();
@@ -54,21 +54,21 @@ namespace EOY_APP.Forms
             
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void addUser(object sender, RoutedEventArgs e)
         {
             var panel = new CreateUser();
             panels.Children.Clear();
             panels.Children.Add(panel);
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void reports(object sender, RoutedEventArgs e)
         {
             var panel = new Reports();
             panels.Children.Clear();
             panels.Children.Add(panel);
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void editReports(object sender, RoutedEventArgs e)
         {
             var panel = new EditIssues();
             panels.Children.Clear();
