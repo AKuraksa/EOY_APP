@@ -18,7 +18,10 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid Background="Yellow">
+        <Grid Height="81" UseLayoutRounding="True" >
+            <Grid.Background>
+                <ImageBrush ImageSource="/Forms/asfas.png" Stretch="Fill" TileMode="Tile"/>
+            </Grid.Background>
             <Image Height="90" Margin="30,0,0,0" VerticalAlignment="Center" Source="/Forms/Pictures/8791959.png" HorizontalAlignment="Left" Width="213"/>
             <Label x:Name="clockLabel" Content="00:00" Margin="0,0,117,-7" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right" Width="67"/>
             <Label x:Name="dateLabel" Content="01.01.0001" Margin="0,0,-2,-7" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right" Width="124"/>
