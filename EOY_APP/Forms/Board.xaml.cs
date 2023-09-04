@@ -49,16 +49,16 @@ namespace EOY_APP
         }
         private async Task Clock()
         {
-            var timeUtc = DateTime.UtcNow.ToString("t");
-            var dateUtc = DateTime.UtcNow.ToString("d");
+            var time = DateTime.Now.ToString("t");
+            var date = DateTime.Now.ToString("d");
             var ticker = new DispatcherTimer();
             ticker.Interval = TimeSpan.FromSeconds(1);
             ticker.Tick += (sender, e) =>
             {
-                clockLabel.Content = timeUtc;
-                dateLabel.Content = dateUtc;
+                clockLabel.Content = time;
+                dateLabel.Content = date;
             };
-            ticker.Start();
+            ticker.Start(); ;
         }
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
