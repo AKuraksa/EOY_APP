@@ -119,10 +119,11 @@ namespace EOY_APP
             timer.Start();
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            await MoveBar(Sidebar);
-        }
+
+        //private async void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    await MoveBar(Sidebar);
+        //}
 
         private void admin_btn_Click(object sender, RoutedEventArgs e)
         {

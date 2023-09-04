@@ -30,8 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Forms\asfas.png" />
-    <Resource Include="Forms\icons8-user-60.png" />
+
+    <Resource Include="Forms\Pictures\user.png" />
     <Resource Include="Forms\Pictures\8791959.png" />
     <Resource Include="Forms\Pictures\Bez názvu-3.png" />
     <Resource Include="Forms\Pictures\Bez názvu-4.png" />
