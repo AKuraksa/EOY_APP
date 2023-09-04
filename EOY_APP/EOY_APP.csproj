@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Forms\8791959.png" />
+    <None Remove="Forms\asfas.png" />
     <None Remove="Forms\Bez názvu-3.png" />
     <None Remove="Forms\Bez názvu-4.png" />
     <None Remove="Forms\Bez názvu-5.png" />
@@ -16,6 +17,7 @@
     <None Remove="Forms\icons8-user-60.png" />
     <None Remove="Forms\leftArr.png" />
     <None Remove="Forms\logo.png" />
+    <None Remove="Forms\PPT Slide Header Vector, Footer Design Template AI - 640x400.png" />
     <None Remove="Forms\rightArr.png" />
   </ItemGroup>
 
@@ -28,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+
     <Resource Include="Forms\Pictures\user.png" />
     <Resource Include="Forms\Pictures\8791959.png" />
     <Resource Include="Forms\Pictures\Bez názvu-3.png" />
@@ -37,6 +40,7 @@
     <Resource Include="Forms\Pictures\leftArr.png" />
     <Resource Include="Forms\Pictures\logo.png" />
     <Resource Include="Forms\Pictures\rightArr.png" />
+    <Resource Include="Forms\PPT Slide Header Vector, Footer Design Template AI - 640x400.png" />
   </ItemGroup>
 
 </Project>
