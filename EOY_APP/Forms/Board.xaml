@@ -25,10 +25,10 @@
                     <GradientStop Color="#FF0206E4" Offset="0.82"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Image Height="81" Margin="0,0,1,0" VerticalAlignment="Top" Source="/Forms/8791959.png"/>
+            <Image Height="81" Margin="0,0,1,0" VerticalAlignment="Top" Source="/Forms/Pictures/8791959.png"/>
             <Button Content="&#xA;" HorizontalAlignment="Center"  Margin="0,86,0,0" VerticalAlignment="Top" Height="65" Width="98" Click="Button_Click" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Foreground="White" FontSize="16" BorderThickness="0,0,0,0">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Forms/Bez názvu-4.png" Stretch="Uniform">
+                    <ImageBrush ImageSource="/Forms/Pictures/Bez názvu-4.png" Stretch="Uniform">
                         <ImageBrush.RelativeTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0"/>
@@ -42,7 +42,7 @@
             </Button>
             <Button x:Name="admin_btn" Click="admin_btn_Click" Content="&#xA;" HorizontalAlignment="Center"  Margin="0,156,0,0" VerticalAlignment="Top" Height="65" Width="98"  RenderTransformOrigin="0.5,0.5" Cursor="Hand" Foreground="White" FontSize="16" BorderThickness="0,0,0,0">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Forms/Bez názvu-5.png" Stretch="Uniform">
+                    <ImageBrush ImageSource="/Forms/Pictures/Bez názvu-5.png" Stretch="Uniform">
                         <ImageBrush.RelativeTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0"/>
