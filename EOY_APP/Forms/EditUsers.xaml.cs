@@ -120,17 +120,23 @@ namespace EOY_APP.Forms
             {
                 try
                 {
+                    
                     var DtoDataSource = ltboxUsers.SelectedItem as LoginDto;
 
                     var permissionValue = permission_chk.IsChecked ?? false;
                     var myClient = new RestClient($"{_parameter.GetApiAdress()}/DataChangeOfUser");
                     var request = new RestRequest();
+                    if (password_txt.Password == passwordAgain_txt.Password)
+                    {
+                        request.AddQueryParameter("password", password_txt.Password);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hesla se neshodují");
+                        
+                    }
                     request.AddQueryParameter("idSet", DtoDataSource.id);
                     request.AddQueryParameter("username", username_txt.Text);
-
-                    if (password_txt.Password == passwordAgain_txt.Password)
-                        request.AddQueryParameter("password", password_txt.Password);
-
                     request.AddQueryParameter("email", email_txt.Text);
                     request.AddQueryParameter("firstName", firstName_txt.Text);
                     request.AddQueryParameter("lastName", lastName_txt.Text);
