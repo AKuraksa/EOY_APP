@@ -17,7 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Windows.Threading;
 
 namespace EOY_APP.Forms
 {
@@ -27,32 +27,34 @@ namespace EOY_APP.Forms
     public partial class EditUsers : UserControl
     {
         private readonly Parameters _parameter = new Parameters();
-        public EditUsers()
+        public  EditUsers()
         {
             InitializeComponent();
+           
         }
         private async void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             await RefreshList();
+            await CheckPassword();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (ltboxUsers.SelectedIndex!=0 && ltboxUsers.SelectedIndex > 0)
+            if (ltboxUsers.SelectedIndex != 0 && ltboxUsers.SelectedIndex > 0)
             {
                 ltboxUsers.SelectedIndex--;
-                selectedId.Content = (ltboxUsers.SelectedIndex+1).ToString();
-            } 
+                selectedId.Content = (ltboxUsers.SelectedIndex + 1).ToString();
+            }
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (ltboxUsers.SelectedIndex != ltboxUsers.Items.Count)
             {
                 ltboxUsers.SelectedIndex++;
-                selectedId.Content = (ltboxUsers.SelectedIndex+1).ToString();
-            }   
+                selectedId.Content = (ltboxUsers.SelectedIndex + 1).ToString();
+            }
         }
         private void ltboxUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        { 
+        {
             if (ltboxUsers.SelectedItem != null)
             {
                 var selectedLoginDto = ltboxUsers.SelectedItem as LoginDto;
@@ -62,11 +64,11 @@ namespace EOY_APP.Forms
                     lastName_txt.Text = selectedLoginDto.LastName;
                     username_txt.Text = selectedLoginDto.Username;
                     email_txt.Text = selectedLoginDto.Email;
-                    password_txt.Password=selectedLoginDto.Password;
-                    passwordAgain_txt.Password=selectedLoginDto.Password;
+                    password_txt.Password = selectedLoginDto.Password;
+                    passwordAgain_txt.Password = selectedLoginDto.Password;
                     permission_chk.IsChecked = selectedLoginDto.Permission;
                 }
-                selectedId.Content=(ltboxUsers.SelectedIndex+1).ToString();
+                selectedId.Content = (ltboxUsers.SelectedIndex + 1).ToString();
             }
         }
         private async void Button_Click_2(object sender, RoutedEventArgs e)
@@ -75,22 +77,22 @@ namespace EOY_APP.Forms
             {
                 var selectedLoginDto = ltboxUsers.SelectedItem as LoginDto;
 
-                if (MessageBoxResult.Yes == MessageBox.Show($"Opravdu chcete smazat uživatele {selectedLoginDto.FullName}?","Dotaz",MessageBoxButton.YesNo,MessageBoxImage.Question))
+                if (MessageBoxResult.Yes == MessageBox.Show($"Opravdu chcete smazat uživatele {selectedLoginDto.FullName}?", "Dotaz", MessageBoxButton.YesNo, MessageBoxImage.Question))
                 {
-                        try
-                        {
-                            var myClient = new RestClient($"{_parameter.GetApiAdress()}/DeleteByID");
-                            var request = new RestRequest();
-                            request.AddQueryParameter("id", selectedLoginDto.id);
-                            var response = myClient.Delete(request);
-                            MessageBox.Show($"Uživatel {selectedLoginDto.FullName} byl odstraněn");
-                            await RefreshList();
-                            ltboxUsers.SelectedIndex = 0;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
+                    try
+                    {
+                        var myClient = new RestClient($"{_parameter.GetApiAdress()}/DeleteByID");
+                        var request = new RestRequest();
+                        request.AddQueryParameter("id", selectedLoginDto.id);
+                        var response = myClient.Delete(request);
+                        MessageBox.Show($"Uživatel {selectedLoginDto.FullName} byl odstraněn");
+                        await RefreshList();
+                        ltboxUsers.SelectedIndex = 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
         }
@@ -106,7 +108,7 @@ namespace EOY_APP.Forms
                 var usersList = JsonSerializer.Deserialize<List<LoginDto>>(content);
                 ltboxUsers.ItemsSource = usersList;
                 countId.Content = usersList.Count;
-                selectedId.Content = (ltboxUsers.SelectedIndex+1).ToString();
+                selectedId.Content = (ltboxUsers.SelectedIndex + 1).ToString();
             }
             catch (Exception ex)
             {
@@ -114,7 +116,7 @@ namespace EOY_APP.Forms
             }
         }
 
-        private  async void Button_Click_3(object sender, RoutedEventArgs e)
+        private async void Button_Click_3(object sender, RoutedEventArgs e)
         {
             if (ltboxUsers.SelectedItem != null)
             {
@@ -126,33 +128,28 @@ namespace EOY_APP.Forms
                     var permissionValue = permission_chk.IsChecked ?? false;
                     var myClient = new RestClient($"{_parameter.GetApiAdress()}/DataChangeOfUser");
                     var request = new RestRequest();
-                    if (password_txt.Password == passwordAgain_txt.Password)
-                    {
-                        request.AddQueryParameter("password", password_txt.Password);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Hesla se neshodují");
-                        
-                    }
                     request.AddQueryParameter("idSet", DtoDataSource.id);
                     request.AddQueryParameter("username", username_txt.Text);
+                    request.AddQueryParameter("password", password_txt.Password);
                     request.AddQueryParameter("email", email_txt.Text);
                     request.AddQueryParameter("firstName", firstName_txt.Text);
                     request.AddQueryParameter("lastName", lastName_txt.Text);
                     request.AddQueryParameter("permission", permissionValue);
-
                     var response = myClient.Patch(request);
                     await RefreshList();
                     MessageBox.Show("Změněno");
+
+
+
+
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-               
+
             }
-              
+
         }
 
         private void Button_KeyDown(object sender, KeyEventArgs e)
@@ -176,6 +173,30 @@ namespace EOY_APP.Forms
 
         }
 
-       
+        private async Task CheckPassword()
+        {
+            var ticker = new DispatcherTimer();
+            ticker.Interval = TimeSpan.FromMilliseconds(50);
+            ticker.Tick += (sender, e) =>
+            {
+                if (password_txt.Password == passwordAgain_txt.Password)
+                {
+                    password_txt.Background = Brushes.Green;
+                    password_txt.Foreground = Brushes.White;
+
+                    passwordAgain_txt.Background = Brushes.Green;
+                    passwordAgain_txt.Foreground = Brushes.White;
+                }
+                else
+                {
+                    password_txt.Background = Brushes.Red;
+                    password_txt.Foreground = Brushes.White;
+
+                    passwordAgain_txt.Background = Brushes.Red;
+                    passwordAgain_txt.Foreground = Brushes.White;
+                }
+            };
+            ticker.Start();
+        }
     }
 }

@@ -47,9 +47,7 @@ namespace EOY_APP.Forms
             if (btn.Background == Brushes.White )
             {
                 btn.Background= Brushes.GreenYellow;
-
                 timer.Interval = TimeSpan.FromSeconds(3); ;
-                
                 timer.Start();
             }
             else

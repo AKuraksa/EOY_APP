@@ -40,15 +40,29 @@ namespace EOY_APP
         {
             InitializeComponent();
             _shared = shared;
+
+            var usernames = shared.LoginDtos;
+            foreach( var user in usernames )
+            {
+                userLabel.Content = user.FullName;
+            }
         }
-
-
-
-
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private async Task Clock()
         {
-         
+            var time = DateTime.Now.ToString("t");
+            var date = DateTime.Now.ToString("d");
+            var ticker = new DispatcherTimer();
+            ticker.Interval = TimeSpan.FromSeconds(1);
+            ticker.Tick += (sender, e) =>
+            {
+                clockLabel.Content = time;
+                dateLabel.Content = date;
+            };
+            ticker.Start(); ;
+        }
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+           await Clock();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
