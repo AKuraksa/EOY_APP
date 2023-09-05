@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EOY_APP", "EOY_APP\EOY_APP.csproj", "{383A2055-7972-4F1F-8E39-07CF512ECBAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EOY_APP", "EOY_APP\EOY_APP.csproj", "{383A2055-7972-4F1F-8E39-07CF512ECBAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EOY_WEBapp", "EOY_WEBapp\EOY_WEBapp.csproj", "{EEB36AD1-9AE0-40FD-8A49-97EFEF468C36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{383A2055-7972-4F1F-8E39-07CF512ECBAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{383A2055-7972-4F1F-8E39-07CF512ECBAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{383A2055-7972-4F1F-8E39-07CF512ECBAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB36AD1-9AE0-40FD-8A49-97EFEF468C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB36AD1-9AE0-40FD-8A49-97EFEF468C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB36AD1-9AE0-40FD-8A49-97EFEF468C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB36AD1-9AE0-40FD-8A49-97EFEF468C36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

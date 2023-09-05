@@ -1,0 +1,37 @@
+﻿@model EOY_WEBapp.Models.MyViewModel;
+
+@{
+    ViewData["Title"] = "Přihlášení";
+}
+
+<link rel="stylesheet" href="~/css/styleIndex.css" />
+
+<head class="topPanel">
+    <title></title>
+   
+</head>
+ <div>
+     <img alt="logo" class="logo" src="~/Pictures/eoyLogo.png"/>
+ </div>
+
+   <body>
+    <div class="centered-div">
+        <div class="panelLogin">
+            <div class="textbox_container">
+                <ul>
+                    <li class="no-bullet">
+                         <input type="text" placeholder="uživatelské jméno">
+                    </li>
+                </ul>
+                <ul>
+                    <li class="no-bullet"><input type="password" placeholder="heslo"></li>
+                </ul>
+                <ul>
+                    <li class="no-bullet"><button class="btnTemplate"  id="loginButton">@Model.Message</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+

@@ -13,22 +13,35 @@
         
         Loaded="Window_Loaded"
         KeyDown="Window_KeyDown">
+
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid Height="81" UseLayoutRounding="True" >
-            <Image Height="90" Margin="30,0,0,0" VerticalAlignment="Center" Source="/Forms/Pictures/8791959.png" HorizontalAlignment="Left" Width="213"/>
-            <Label x:Name="clockLabel" Content="00:00" Margin="0,0,117,-7" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right" Width="67"/>
-            <Label x:Name="dateLabel" Content="01.01.0001" Margin="0,0,-2,-7" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right" Width="124"/>
-            <Label Content="Počet aktivních uživatelů:" Margin="0,10,30,10" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center"/>
-            <Grid Margin="0,5,4,29" Background="Transparent" HorizontalAlignment="Right" Width="180">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label x:Name="userLabel" Content="jméno příjmení" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Grid Grid.Row="1" Margin="0,0,1344,0">
+
+
+
+            <Border Background="#FFFEFEFF" BorderThickness="2" BorderBrush="Gray" CornerRadius="30" Margin="79,68,211,856">
+
+                <Label x:Name="userLabel" Content="Tomáš Dohnal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontFamily="Ebrima" FontWeight="Bold" Margin="60,0,8,76" Foreground="#FF5C6777"/>
+            </Border>
+
+            <Border Margin="0,142,128,0" BorderThickness="0,0,3,0">
+                <Border.Effect>
+                    <DropShadowEffect/>
+                </Border.Effect>
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF1E6EDA" Offset="1"/>
+                        <GradientStop Color="#FF96D1FF" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.CornerRadius>
+                    <CornerRadius TopRight="90"/>
+                </Border.CornerRadius>
                 <Grid>
                     <Grid.Background>
                         <ImageBrush ImageSource="/Forms/Pictures/user.png" Stretch="Uniform"/>
@@ -42,88 +55,58 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Background="lightGray" Width="230" Orientation="Vertical" HorizontalAlignment="Left">
-                <Menu Height="450" Background="Transparent" Margin="0,40,0,0">
-                    <Menu.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel Orientation="Vertical" />
-                        </ItemsPanelTemplate>
-                    </Menu.ItemsPanel>
 
-                    <MenuItem Header="Hlavní stránka" FontSize="20" >
-                        <MenuItem.Icon>
-                            <Image Source="/Forms/Pictures/Bez názvu-4.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem x:Name="admin_btn" Click="admin_btn_Click" Header="Administrace" FontSize="20">
-                        <MenuItem.Icon>
-                            <Image Source="/Forms/Pictures/Bez názvu-5.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                </Menu>
-            </StackPanel>
-            <Grid x:Name="monitor_grid" Grid.Column="1">
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="White"/>
-                        <GradientStop Color="#FFFFBD09" Offset="1"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
-            </Grid>
-            <!-- Puvodni navrh
-            <Grid x:Name="Sidebar" HorizontalAlignment="Left" Width="170">
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFFF5200"/>
-                        <GradientStop Color="#FF0542FD" Offset="1"/>
-                        <GradientStop Color="#FFFDAE00" Offset="0.327"/>
-                        <GradientStop Color="#FFE12DFF" Offset="0.601"/>
-                        <GradientStop Color="#FF0206E4" Offset="0.82"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
+                    <StackPanel Grid.ColumnSpan="2" Margin="0,248,0,0">
+                        <Border  Background="GhostWhite" BorderThickness="2" CornerRadius="10" Width="351" Height="75" >
+                            <Button Content="Hlavní menu" Margin="16,4,16,5" Background="GhostWhite" Foreground="#FF0BABFF" BorderThickness="0,0,0,0"/>
+                        </Border>
+                        <Border x:Name="adminPanel"  Background="GhostWhite" BorderThickness="2" CornerRadius="10" Width="351" Height="30" MinHeight="30" MaxHeight="130" >
+                            <StackPanel>
+                                <!-- Tlačítko Administrace -->
+                                <Button Content="                                    Administrace                                →" Margin="16,4,16,5" Background="White" Foreground="#FF0BABFF" BorderThickness="0,0,0,0" Click="Button_Click" FontWeight="Bold"/>
+                               
+                                <!-- MenuItem - přidat další obsah podle potřeby -->
+                                <MenuItem Header="Vytvořit nového uživatele" Click="CreateUser_Click"/>
+                                <MenuItem Header="Editovat uživatele" Click="MenuItem_Click" />
+                                <MenuItem Header="Reporting" Click="MenuItem_Click_1" />
+                                <MenuItem Header="Maping" Click="MenuItem_Click_2" />
+                            </StackPanel>
 
-                <Button Content="&#xA;" HorizontalAlignment="Center"  Margin="0,86,0,0" VerticalAlignment="Top" Height="65" Width="98" Click="Button_Click" RenderTransformOrigin="0.5,0.5" Cursor="Hand" Foreground="White" FontSize="16" BorderThickness="0,0,0,0">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/Forms/Pictures/Bez názvu-4.png" Stretch="Uniform">
-                            <ImageBrush.RelativeTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0"/>
-                                    <SkewTransform AngleX="0" CenterX="0"/>
-                                    <RotateTransform CenterX="0"/>
-                                    <TranslateTransform Y="0" X="0"/>
-                                </TransformGroup>
-                            </ImageBrush.RelativeTransform>
-                        </ImageBrush>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="admin_btn" Click="admin_btn_Click" Content="&#xA;" HorizontalAlignment="Center"  Margin="0,156,0,0" VerticalAlignment="Top" Height="65" Width="98"  RenderTransformOrigin="0.5,0.5" Cursor="Hand" Foreground="White" FontSize="16" BorderThickness="0,0,0,0">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/Forms/Pictures/Bez názvu-5.png" Stretch="Uniform">
-                            <ImageBrush.RelativeTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0"/>
-                                    <SkewTransform AngleX="0" CenterX="0"/>
-                                    <RotateTransform CenterX="0"/>
-                                    <TranslateTransform Y="0" X="0"/>
-                                </TransformGroup>
-                            </ImageBrush.RelativeTransform>
-                        </ImageBrush>
-                    </Button.Background>
-                </Button>
+                        </Border>
+                        <Border  Background="GhostWhite" BorderThickness="2" CornerRadius="10" Width="351" Height="75" >
+                            <Button Content="Hlavní menu" Margin="16,4,16,5" Background="GhostWhite" Foreground="#FF0BABFF" BorderThickness="0,0,0,0"/>
+                        </Border>
+
+                    </StackPanel>
+                    <Border CornerRadius="90" HorizontalAlignment="Left" Width="152" Margin="0,-92,0,884" Grid.ColumnSpan="2">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Forms/man (1).png" Stretch="Uniform"/>
+                        </Border.Background>
+                    </Border>
+                </Grid>
+            </Border>
+            <Label x:Name="dateLabel" Margin="201,146,245,901" Content="01.01.0001" FontFamily="Gadugi" FontSize="14" FontWeight="Bold" Foreground="White"/>
+            <Label x:Name="clockLabel" Margin="201,179,245,868" Content="00:00" FontFamily="Gadugi" FontWeight="Bold" FontSize="14" Foreground="White"/>
 
 
 
-            </Grid>
-            <Grid x:Name="monitor_grid" Margin="175,0,0,0">
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="White"/>
-                        <GradientStop Color="#FFFFBD09" Offset="1"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
-            </Grid>-->
-            
         </Grid>
+        <Grid Grid.RowSpan="2" Margin="0,0,0,4" Height="68" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="54">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Forms/Pictures/8791959.png" Stretch="Uniform"/>
+            </Grid.Background>
+        </Grid >
+        <Label Content="v. 1.0.0.0" HorizontalAlignment="Left" Margin="0,0,0,4" Grid.Row="1" VerticalAlignment="Bottom" Width="168" Foreground="White" FontFamily="Gadugi" FontWeight="Bold"/>
+        <Border  Background="#FFE8E8E8" BorderThickness="2" Margin="548,0,0,0" Grid.RowSpan="2" >
+            <Border.CornerRadius>
+                <!-- Specifikujte zaoblení jen pro horní levý roh -->
+               
+                <CornerRadius TopLeft="160" />
+              
+            </Border.CornerRadius>
+            <Grid x:Name="wall"  Grid.RowSpan="2" Margin="49,91,0,-10"></Grid>
+        </Border>
+
 
 
     </Grid>
