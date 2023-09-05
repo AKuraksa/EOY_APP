@@ -1,0 +1,37 @@
+﻿.logo{
+   
+    height:5%;
+    width:5%;
+}
+.topPanel {
+   
+    background-color: #ccc;
+        width: 100%;
+    
+}
+
+.centered-div {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: blue;
+    height: 500px;
+    width: 450px;
+    border-radius: 80px;
+    background: linear-gradient(0deg, #352da4, #900f0f);
+}
+.textbox_container {
+   margin-top:30%;
+   margin-left:20%;
+}
+.btnTemplate {
+    width: 40%;
+    height: 30px;
+   
+    margin-top: 30%;
+    margin-left: 4%;
+}
+.no-bullet {
+    list-style-type: none;
+}
