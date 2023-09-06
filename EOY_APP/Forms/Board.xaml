@@ -43,11 +43,17 @@
                     <CornerRadius TopRight="90"/>
                 </Border.CornerRadius>
                 <Grid>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="134*"/>
-                        <ColumnDefinition Width="371*"/>
-                    </Grid.ColumnDefinitions>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Forms/Pictures/user.png" Stretch="Uniform"/>
+                    </Grid.Background>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
 
                     <StackPanel Grid.ColumnSpan="2" Margin="0,248,0,0">
