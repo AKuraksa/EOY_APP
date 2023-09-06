@@ -1,4 +1,5 @@
-﻿@model EOY_WEBapp.Models.MyViewModel;
+﻿@model EOY_WEBapp.Dto.LoginDto;
+
 
 @{
     ViewData["Title"] = "Přihlášení";
@@ -15,23 +16,26 @@
  </div>
 
    <body>
+    <form method="get" action="/LoginController/LogIn">
+  
     <div class="centered-div">
         <div class="panelLogin">
             <div class="textbox_container">
                 <ul>
                     <li class="no-bullet">
-                         <input type="text" placeholder="uživatelské jméno">
+                            <input asp-for="Username" type="text" placeholder="uživatelské jméno">
                     </li>
                 </ul>
                 <ul>
-                    <li class="no-bullet"><input type="password" placeholder="heslo"></li>
+                        <li class="no-bullet"><input asp-for="Password" type="password" placeholder="heslo"></li>
                 </ul>
                 <ul>
-                    <li class="no-bullet"><button class="btnTemplate"  id="loginButton">@Model.Message</button></li>
+                        <li class="no-bullet"><button class="btnTemplate" id="loginButton">Přihlásit se</button></li>
                 </ul>
             </div>
         </div>
     </div>
+    </form>
 </body>
 
 
