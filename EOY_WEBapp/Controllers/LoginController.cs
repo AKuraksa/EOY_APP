@@ -4,11 +4,11 @@ using System.Diagnostics;
 
 namespace EOY_WEBapp.Controllers
 {
-    public class HomeController : Controller
+    public class LoginController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<LoginController> _logger;
        
-        public HomeController(ILogger<HomeController> logger)
+        public LoginController(ILogger<LoginController> logger)
         {
             _logger = logger;
         
@@ -19,14 +19,10 @@ namespace EOY_WEBapp.Controllers
         public IActionResult Index()
         {
             // Vytvoření instance modelu a nastavení dat
-            var model = new MyViewModel
-            {
-                Message = "Vítejte na našem webu!",
-                // Další vlastnosti modelu můžete nastavit zde
-            };
+          
 
             // Nahrání pohledu a předání modelu
-            return View(model);
+            return View();
         }
 
         public IActionResult Privacy()
