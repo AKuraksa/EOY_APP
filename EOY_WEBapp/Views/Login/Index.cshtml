@@ -20,14 +20,19 @@
             <div class="textbox_container">
                 <ul>
                     <li class="no-bullet">
-                         <input type="text" placeholder="uživatelské jméno">
+                      
+                        @*pomoci '@' muzes psat casti kodu v C# do html*@
+                        @{
+                            string kolibrk = "rano";
+                        }
+                        <input type="text" placeholder="uživatelské jméno">
                     </li>
                 </ul>
                 <ul>
                     <li class="no-bullet"><input type="password" placeholder="heslo"></li>
                 </ul>
                 <ul>
-                    <li class="no-bullet"><button class="btnTemplate"  id="loginButton">Přihlásit se</button></li>
+                    <li class="no-bullet"><button class="btnTemplate"  id="loginButton">@kolibrk</button></li>
                 </ul>
             </div>
         </div>
