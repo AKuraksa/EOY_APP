@@ -15,28 +15,29 @@
  </div>
 
    <body>
+    <form method="post" action="@Url.Action("Index", "LoginController")">
     <div class="centered-div">
         <div class="panelLogin">
             <div class="textbox_container">
                 <ul>
                     <li class="no-bullet">
+                        <dev class=" form-group" ">
+                            @Html.TextBoxFor(m=>m.Username , new{ @class ="form-control"})
+                        </dev>
                       
-                        @*pomoci '@' muzes psat casti kodu v C# do html*@
-                        @{
-                            string kolibrk = "rano";
-                        }
-                        <input type="text" placeholder="uživatelské jméno">
-                    </li>
                 </ul>
                 <ul>
-                    <li class="no-bullet"><input type="password" placeholder="heslo"></li>
+                    <dev class=" form-group"">
+                        @Html.PasswordFor(m=>m.Password, new{ @class ="form-control"})
+                    </dev>
                 </ul>
                 <ul>
-                    <li class="no-bullet"><button class="btnTemplate"  id="loginButton">@kolibrk</button></li>
+                        <input type="submit" value="submit" formaction="@Url.Action("Index", "LoginController") name="Index" contextmenu="Login" />
                 </ul>
             </div>
         </div>
     </div>
+ </form>
 </body>
 
 
