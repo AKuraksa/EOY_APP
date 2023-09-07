@@ -23,7 +23,7 @@
                 <ul>
                     <li class="no-bullet">
                         <dev class=" form-group" ">
-                            @Html.TextBoxFor(m=>m.Username , new{ @class ="form-control"})
+                            @Html.TextBoxFor(m=>m.Username)
                         </dev>
                       
                 </ul>
@@ -33,7 +33,7 @@
                     </dev>
                 </ul>
                 <ul>
-                        <input type="submit" value="submit" formaction="@Url.Action("Index", "LoginController") name="Index" contextmenu="Login" />
+                        <button> @Html.ActionLink("Přihlásit se","LoginAction")</button>
                 </ul>
             </div>
         </div>

@@ -1,13 +1,15 @@
 ﻿using RestSharp;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 
 namespace EOY_WEBapp.Models
 {
     public class LoginModel
     {
-       
-            public string Username { get; set; }
-            public string Password { get; set; }
+        [Required(ErrorMessage = "Uživatelské jméno je povinné.")]
+        public string Username { get; set; }
+        [Required(ErrorMessage = "Heslo je povinné.")]
+        public string Password { get; set; }
 
     }
 }
