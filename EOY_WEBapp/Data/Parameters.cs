@@ -8,12 +8,12 @@ namespace EOY_WEBapp.Data
 {
     class Parameters
     {
-        public int port = 7086;
+        public int apiPort = 7106;
 
         public string GetApiAdress()
         {
             string ApiAdress;
-            return ApiAdress = $"https://localhost:{port}";
+            return ApiAdress = $"https://localhost:{apiPort}";
 
 
 

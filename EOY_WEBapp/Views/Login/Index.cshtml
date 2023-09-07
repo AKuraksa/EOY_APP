@@ -1,44 +1,23 @@
-﻿@model EOY_WEBapp.Models.LoginModel;
-
-
+﻿@model EOY_WEBapp.Models.LoginModel // Změňte 'YourNamespace' na skutečný namespace vašeho modelu
 @{
-    ViewData["Title"] = "Přihlášení";
+    ViewData["Title"] = "Index";
+}
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Username)
+        @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password)
+        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Přihlásit</button>
 }
 
-<link rel="stylesheet" href="~/css/styleIndex.css" />
-
-<head class="topPanel">
-    <title></title>
-   
-</head>
- <div>
-     <img alt="logo" class="logo" src="~/Pictures/eoyLogo.png"/>
- </div>
-
-   <body>
-    <form method="post" action="@Url.Action("Index", "LoginController")">
-    <div class="centered-div">
-        <div class="panelLogin">
-            <div class="textbox_container">
-                <ul>
-                    <li class="no-bullet">
-                        <dev class=" form-group" ">
-                            @Html.TextBoxFor(m=>m.Username)
-                        </dev>
-                      
-                </ul>
-                <ul>
-                    <dev class=" form-group"">
-                        @Html.PasswordFor(m=>m.Password, new{ @class ="form-control"})
-                    </dev>
-                </ul>
-                <ul>
-                        <button> @Html.ActionLink("Přihlásit se","LoginAction")</button>
-                </ul>
-            </div>
-        </div>
-    </div>
- </form>
-</body>
-
-
+@if (ViewBag.LoginError != null)
+{
+    <p class="text-danger">Došlo k chybě při přihlašování.</p>
+}
