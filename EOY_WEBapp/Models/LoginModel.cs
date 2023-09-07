@@ -8,13 +8,28 @@ namespace EOY_WEBapp.Models
 {
     public class LoginModel
     {
-		[JsonPropertyName("username")]
-		[Required(ErrorMessage = "Username is required.")]
-		public string Username { get; set; }
+       
+        [JsonPropertyName("id")]
+        public Guid id { get; set; }
+
+        [JsonPropertyName("username")]
+        public string Username { get; set; }
 
         [JsonPropertyName("password")]
-		[Required(ErrorMessage = "Password is required.")]
-		public string? Password { get; set; }
+        public string Password { get; set; }
+        [JsonPropertyName("email")]
+        public string Email { get; set; }
+        [JsonPropertyName("firstName")]
+        public string FirstName { get; set; }
+        [JsonPropertyName("lastName")]
+        public string LastName { get; set; }
+        [JsonPropertyName("permission")]
+        public bool Permission { get; set; }
+
+        public string FullName
+        {
+            get { return $"{FirstName} {LastName}"; }
+        }
 
     }
 }

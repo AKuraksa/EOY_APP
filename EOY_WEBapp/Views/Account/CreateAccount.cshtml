@@ -1,0 +1,61 @@
+﻿@model EOY_WEBapp.Models.LoginModel
+
+@{
+    ViewData["Title"] = "CreateAccount";
+}
+
+<h1>CreateAccount</h1>
+
+<h4>LoginModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          
+           
+                
+            
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                @Html.TextBoxFor(x=> x.Username,new {@class="form-control"})
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                @Html.TextBoxFor(model => model.Password,new {@class="form-control"})
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                @Html.TextBoxFor(model => model.Email,new {@class="form-control"})
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                @Html.TextBoxFor(model => model.FirstName,new {@class="form-control"})
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                @Html.TextBoxFor(model => model.LastName,new {@class="form-control"})
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    @Html.CheckBoxFor(model => model.Permission,new {@class="form-control"})
+                </label>
+            </div>
+
+            <div class="form-group">
+                <Button>nic</Button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
