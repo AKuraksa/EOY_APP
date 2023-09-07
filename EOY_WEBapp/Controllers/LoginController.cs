@@ -3,9 +3,7 @@ using EOY_WEBapp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using RestSharp;
-using EOY_WEBapp.Data;
-using System.Net;
-using System.Reflection;
+using System.Text.Json;
 
 namespace EOY_WEBapp.Controllers
 {
@@ -18,23 +16,19 @@ namespace EOY_WEBapp.Controllers
         public LoginController(ILogger<LoginController> logger)
         {
             _logger = logger;
-          
-            
+        
+
 
 
         }
 
         public IActionResult Index()
         {
-            //// Vytvoření instance modelu a nastavení dat
-            //var model = new MyViewModel
-            //{
-            //    Message = "Vítejte na našem webu!",
-            //    // Další vlastnosti modelu můžete nastavit zde
-            //};
+            // Vytvoření instance modelu a nastavení dat
+          
 
-            //// Nahrání pohledu a předání modelu
-            return View(/*model*/);
+            // Nahrání pohledu a předání modelu
+            return View();
         }
 
         public IActionResult Privacy()
@@ -42,50 +36,49 @@ namespace EOY_WEBapp.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult LogIn(LoginDto loginDto)
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
         {
-            if (loginDto == null || string.IsNullOrWhiteSpace(loginDto.Username) || string.IsNullOrWhiteSpace(loginDto.Password))
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        [HttpGet]
+        public IActionResult Index(LoginModel loginModel)
+        {
+
+            if (ModelState.IsValid)
             {
-                return BadRequest("Neplatný požadavek.");
-            }
-
-        
-            var myClient = new RestClient($"{_parameters.GetApiAdress()}/FindUser");
-            var request = new RestRequest();
-
-          
-            request.AddParameter("username", loginDto.Username);
-            request.AddParameter("password", loginDto.Password);
-
-        
-            var response = myClient.Get(request);
-
-        
-            if (response.ErrorException != null)
-            {
+                if(!ModelState.IsValid)
+                {
+                        var myClient = new RestClient();
+                        var request = new RestRequest();
+                        request.AddQueryParameter("username", loginModel.Username);
+                        request.AddQueryParameter("password", loginModel.Password);
+                        var response = myClient.Get(request);
+                        var content = response.Content;
+                        var user = JsonSerializer.Deserialize<List<LoginModel>>(content);
+                        if (user.Count() == 1)
+                        {
+                            return View(user);
 
                 return StatusCode(500, "Došlo k chybě při volání vzdáleného API.");
-            }
-
-       
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-              
-                var content = response.Content;
-
-                return View("Menu");
-            }
+                        }
+                        else
+                        {
+                            return Error();
+                        }
             else if (response.StatusCode == HttpStatusCode.NotFound)
             {
-               
-               
-                
-                return View("Index");
+
+                    
+                }
             }
-            else
-            {
-               
+
+            // Pokud došlo k chybám validace, zobrazte formulář znovu s chybami
+            return View(loginModel);
+        }
+       private async Task GetUser(LoginModel loginModel)
+        {
+           
                 return StatusCode((int)response.StatusCode, "Došlo k chybě při volání vzdáleného API.");
             }
         }

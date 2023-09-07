@@ -1,4 +1,4 @@
-﻿@model EOY_WEBapp.Dto.LoginDto;
+﻿@model EOY_WEBapp.Models.LoginModel;
 
 
 @{
@@ -16,26 +16,29 @@
  </div>
 
    <body>
-    <form method="get" action="/LoginController/LogIn">
-  
+    <form method="post" action="@Url.Action("Index", "LoginController")">
     <div class="centered-div">
         <div class="panelLogin">
             <div class="textbox_container">
                 <ul>
                     <li class="no-bullet">
-                            <input asp-for="Username" type="text" placeholder="uživatelské jméno">
-                    </li>
+                        <dev class=" form-group" ">
+                            @Html.TextBoxFor(m=>m.Username , new{ @class ="form-control"})
+                        </dev>
+                      
                 </ul>
                 <ul>
-                        <li class="no-bullet"><input asp-for="Password" type="password" placeholder="heslo"></li>
+                    <dev class=" form-group"">
+                        @Html.PasswordFor(m=>m.Password, new{ @class ="form-control"})
+                    </dev>
                 </ul>
                 <ul>
-                        <li class="no-bullet"><button class="btnTemplate" id="loginButton">Přihlásit se</button></li>
+                        <input type="submit" value="submit" formaction="@Url.Action("Index", "LoginController") name="Index" contextmenu="Login" />
                 </ul>
             </div>
         </div>
     </div>
-    </form>
+ </form>
 </body>
 
 

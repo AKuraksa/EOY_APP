@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CSS\**" />
+    <Content Remove="CSS\**" />
+    <EmbeddedResource Remove="CSS\**" />
+    <None Remove="CSS\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\Pictures\" />
   </ItemGroup>
 
@@ -34,9 +41,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Runtime" Version="2.2.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Razor" Version="6.0.21" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc" Version="7.0.9" />
-    <PackageReference Include="RestSharp" Version="110.2.0" />
-    <PackageReference Include="RestSharp.Newtonsoft.Json" Version="1.5.1" />
-    <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="110.2.0" />
+    <PackageReference Include="RestSharp" Version="110.2.1-alpha.0.11" />
+    <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="110.2.1-alpha.0.11" />
   </ItemGroup>
 
 </Project>
