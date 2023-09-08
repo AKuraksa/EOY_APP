@@ -1,37 +1,59 @@
-﻿@model EOY_WEBapp.Models.MyViewModel;
-
+﻿
 @{
-    ViewData["Title"] = "Přihlášení";
+    ViewData["Title"] = "Home";
 }
 
-<link rel="stylesheet" href="~/css/styleIndex.css" />
-
-<head class="topPanel">
-    <title></title>
-   
-</head>
- <div>
-     <img alt="logo" class="logo" src="~/Pictures/eoyLogo.png"/>
- </div>
-
-   <body>
-    <div class="centered-div">
-        <div class="panelLogin">
-            <div class="textbox_container">
-                <ul>
-                    <li class="no-bullet">
-                         <input type="text" placeholder="uživatelské jméno">
-                    </li>
+<link rel="stylesheet" href="~/css/StyleHome.css" asp-append-version="true" />
+<header>
+    <nav>
+        <ul class="main-menu">
+            <!-- První hlavní položka -->
+            <li>
+                <a href="#">Sledovací panel</a>
+                <ul class="sub-menu">
+                    <li><a href="#">A</a></li>
+                    <li><a href="#">B</a></li>
+                    <li><a href="#">C</a></li>
                 </ul>
-                <ul>
-                    <li class="no-bullet"><input type="password" placeholder="heslo"></li>
-                </ul>
-                <ul>
-                    <li class="no-bullet"><button class="btnTemplate"  id="loginButton">@Model.Message</button></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</body>
+            </li>
 
+            <!-- Druhá hlavní položka -->
+            <li>
+                <a href="#">Reporty</a>
+                <ul class="sub-menu">
+                    <li><a href="#">@Html.ActionLink("Aktualní statistika","ActualReport")</a></li>
+                    <li><a href="#">B</a></li>
+                    <li><a href="#">C</a></li>
+                </ul>
+            </li>
 
+            <!-- Třetí hlavní položka -->
+            <li>
+                <a href="#">Nastavení</a>
+                <ul class="sub-menu">
+                    <li><a href="#">@Html.ActionLink("Administrace","AccountSettings")</a></li>
+                    <li><a href="#">Podpoložka 3.2</a></li>
+                    <li><a href="#">Podpoložka 3.3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Přidat klikací událost pro každou hlavní položku
+        $(".main-menu > li > a").click(function (e) {
+            e.preventDefault(); // Zabránit výchozímu chování odkazu
+
+            // Skrýt všechny podpoložky
+            $(".sub-menu").slideUp();
+
+            // Najít podpoložky pro tuto hlavní položku a zobrazit je
+            $(this).next(".sub-menu").slideDown();
+        });
+
+        // Skrýt všechny podpoložky při načtení stránky
+        $(".sub-menu").hide();
+    });
+</script>

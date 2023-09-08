@@ -1,0 +1,24 @@
+﻿@model EOY_WEBapp.Models.LoginModel // Změňte 'YourNamespace' na skutečný namespace vašeho modelu
+@{
+    ViewData["Title"] = "Index";
+}
+
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Username)
+        @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password)
+        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Přihlásit</button>
+}
+
+@if (ViewBag.LoginError != null)
+{
+    <p class="text-danger">Došlo k chybě při přihlašování.</p>
+}

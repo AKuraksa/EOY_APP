@@ -1,0 +1,88 @@
+﻿@using EOY_WEBapp.Data;
+@using System.Text.Json;
+@using RestSharp;
+
+@model IEnumerable<EOY_WEBapp.Models.IssueModels>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<link rel="stylesheet" href="~/css/StyleReport.css" asp-append-version="true" />
+
+<head>
+    <!-- Další prvky hlavičky -->
+    
+</head>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeError)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Workplace)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeError)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Workplace)
+            </td>
+           
+        </tr>
+}
+
+    </tbody>
+</table>
+x
+@{
+  
+    Parameters _parameters = new Parameters();
+    var myClient = new RestClient($"{_parameters.GetApiAdress()}/GetAllErrors");
+    var request = new RestRequest();
+    var response = myClient.Get(request);
+    var content = response.Content;
+    var listErrors = JsonSerializer.Deserialize<List<IssueModels>>(content);
+
+    var currentDate = DateTime.UtcNow;
+    var thisMonthErrors = listErrors.Where(error => error.Date.Year == currentDate.Year && error.Date.Month == currentDate.Month).ToList();
+
+    var mostFrequentError = listErrors
+        .GroupBy(e => e.TypeError)
+        .OrderByDescending(group => group.Count())
+        .Select(group => group.Key)
+        .FirstOrDefault();
+
+    var mostFrequentWorkplace = listErrors
+       .GroupBy(e => e.Workplace)
+       .OrderByDescending(group => group.Count())
+       .Select(group => group.Key)
+       .FirstOrDefault();
+}
+<dev class="containerData">
+<p >Celkový součet chyb za měsíc: @thisMonthErrors.Count</p>
+<p>Celkový součet chyb: @listErrors.Count</p>
+<p>Nejčastější chyba: @mostFrequentError</p>
+<p>Nejčastější pracoviště: @mostFrequentWorkplace</p>
+</dev>
