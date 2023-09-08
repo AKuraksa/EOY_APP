@@ -9,20 +9,12 @@ namespace EOY_WEBapp.Controllers
     public class AccountController : Controller
     {
         private readonly Parameters _parameters = new Parameters();
-        public IActionResult Index()
-        {
-            return View(); // Přesměrování na domovskou stránku
-        }
        
-        public IActionResult Editor()
+       
+        public IActionResult Index()
         {
             List<LoginModel> usersList = UsersList();
             return View(usersList);
-        }
-
-        public IActionResult Edit()
-        {
-            return RedirectToAction("Editor");
         }
 
         public IActionResult DeleteAccount(LoginModel loginModel)

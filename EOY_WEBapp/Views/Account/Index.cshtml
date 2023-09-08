@@ -1,7 +1,50 @@
-﻿
+﻿@model IEnumerable<EOY_WEBapp.Models.LoginModel>
+
 @{
-    ViewData["Title"] = "AccountSettings";
+    ViewData["Title"] = "Editor";
 }
 
-<h1>AccountSettings</h1>
-<button>@Html.ActionLink("Editovat uživatele","Editor")</button>
+<h1>Editor</h1>
+
+<p>
+    @Html.ActionLink("Create new", "CreateAccount")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+         
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+				<td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+             
+            <td>
+                   @Html.ActionLink("Edit", "EditAccount", new {  id=item.id ,Username=item.Username  }) |
+                   @Html.ActionLink("Delete", "DeleteAccount", new {  id=item.id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

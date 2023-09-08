@@ -19,7 +19,11 @@ namespace EOY_WEBapp.Controllers
         {
             return RedirectToAction("Index","Account");
         }
-        
+        public IActionResult ActualReport()
+        {
+            return RedirectToAction("Index", "Report");
+        }
+
 
 
     }
