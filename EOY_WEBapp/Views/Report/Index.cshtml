@@ -1,6 +1,7 @@
 ﻿@using EOY_WEBapp.Data;
 @using System.Text.Json;
 @using RestSharp;
+
 @model IEnumerable<EOY_WEBapp.Models.IssueModels>
 
 @{
@@ -9,7 +10,12 @@
 
 <h1>Index</h1>
 
+<link rel="stylesheet" href="~/css/StyleReport.css" asp-append-version="true" />
 
+<head>
+    <!-- Další prvky hlavičky -->
+    @Styles.Render("~/Content/your-stylesheet-name.css")
+</head>
 <table class="table">
     <thead>
         <tr>
@@ -59,9 +65,6 @@ x
     var content = response.Content;
     var listErrors = JsonSerializer.Deserialize<List<IssueModels>>(content);
 
-
-
-
     var currentDate = DateTime.UtcNow;
     var thisMonthErrors = listErrors.Where(error => error.Date.Year == currentDate.Year && error.Date.Month == currentDate.Month).ToList();
 
@@ -71,14 +74,15 @@ x
         .Select(group => group.Key)
         .FirstOrDefault();
 
-
     var mostFrequentWorkplace = listErrors
        .GroupBy(e => e.Workplace)
        .OrderByDescending(group => group.Count())
        .Select(group => group.Key)
        .FirstOrDefault();
 }
-<p>Celkový součet chyb za měsíc: @thisMonthErrors.Count</p>
+<dev class="containerData">
+<p >Celkový součet chyb za měsíc: @thisMonthErrors.Count</p>
 <p>Celkový součet chyb: @listErrors.Count</p>
 <p>Nejčastější chyba: @mostFrequentError</p>
 <p>Nejčastější pracoviště: @mostFrequentWorkplace</p>
+</dev>
