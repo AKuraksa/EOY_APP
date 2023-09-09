@@ -1,0 +1,21 @@
+﻿<Window x:Class="EOY_ENDPOINT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EOY_ENDPOINT"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="406" Width="264">
+    <Grid>
+        <Button Content="Button" HorizontalAlignment="Center" Margin="0,224,0,0" VerticalAlignment="Top" Width="83"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,49,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,86,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,165,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,28,0,0" TextWrapping="Wrap" Text="Název Pracoviště" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,70,0,0" TextWrapping="Wrap" Text="IPV4 Adresa" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,107,0,0" TextWrapping="Wrap" Text="MAC Adresa" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="72,144,0,0" TextWrapping="Wrap" Text="Device Name" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
