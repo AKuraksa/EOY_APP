@@ -28,7 +28,7 @@
         margin: 0;
     }
 
-    nav a:hover, .subnav:hover .subnavbtn {
+    nav .a-link:hover, .subnav:hover .subnavbtn {
         background-color: red;
     }
 
@@ -41,13 +41,13 @@
     z-index: 1;
 }
 
-    .subnav-content a {
+    .subnav-content .a-link {
         float: left;
         color: white;
         text-decoration: none;
     }
 
-        .subnav-content a:hover {
+        .subnav-content .a-link:hover {
             background-color: #eee;
             color: black;
         }
