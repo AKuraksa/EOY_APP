@@ -25,7 +25,7 @@ namespace EOY_WEBapp.Controllers
             var response = myClient.Delete(request);
 
             // Po smazání účtu přesměrovat zpět na Editor
-            return RedirectToAction("Editor");
+            return RedirectToAction("Index");
         }
         public IActionResult CreateAccount(LoginModel loginModel)
         {
