@@ -1,16 +1,57 @@
-﻿.okno {
+﻿* {
     margin: 0;
-    border: 0;
     padding: 0;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+    font-family: Arial, Verdana;
 }
 
-.login {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-    background-color: purple;
+body {
+    background-color: lightblue;
+}
+
+p {
+    font-size: 16px;
+}
+
+input {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button {
+    background-color: white;
+    border: 2px solid #e7e7e7;
+    color: black;
+    margin: 4px 2px;
+    padding: 8px 32px;
     text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e7e7e7;
+}
+
+.container {
+    border: 2px solid;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px 200px;
+    text-align: center;
+    background-color: white;
+}
+
+.form-item{
+    width: 100%;
+    margin: 10px 0;
+    text-align: left;
 }
