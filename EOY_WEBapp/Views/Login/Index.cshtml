@@ -1,24 +1,38 @@
-﻿@model EOY_WEBapp.Models.LoginModel // Změňte 'YourNamespace' na skutečný namespace vašeho modelu
+﻿@model EOY_WEBapp.Models.LoginModel
 @{
-    ViewData["Title"] = "Index";
+    Layout = null; // Negeneruje v layoutu
 }
 
-@using (Html.BeginForm("Index", "Login", FormMethod.Post))
-{
-    <div class="form-group">
-        @Html.LabelFor(model => model.Username)
-        @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
-    </div>
+<!-- Login page má vlastní styl -->
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Password)
-        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - EOY_WEBapp</title>
+    <link rel="stylesheet" href="~/css/styleLogin.css" asp-append-version="true" />
+</head>
+<body>
+    @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+    {
+        <div class="container">
+            <h1>Login</h1>
+            <div class="form-item">
+                <p>Přihlašovací jméno:</p>
+                @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+            </div>
+            <div class="form-item">
+                <p>Heslo:</p>
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+            </div>
+            <button type="submit">Přihlásit</button>
+        </div>
+    }
 
-    <button type="submit" class="btn btn-primary">Přihlásit</button>
-}
-
-@if (ViewBag.LoginError != null)
-{
-    <p class="text-danger">Došlo k chybě při přihlašování.</p>
-}
+    @if (ViewBag.LoginError != null)
+    {
+        <p class="text-danger">Došlo k chybě při přihlašování.</p>
+    }
+</body>
+</html>
