@@ -5,16 +5,17 @@
     padding: 0;
 }
 
+ /*Doupravit footer ať to funguje normalně*/
 .container{
     padding: 10px 30px;
+    min-height: 74vh;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 0 10px;
-  white-space: nowrap;
-  line-height: 60px;
-  background-color: lightgray;
+    left: 0;
+    right: 0;
+    position: sticky;
+    padding: 0 10px;
+    line-height: 60px;
+    background-color: lightgray;
 }
