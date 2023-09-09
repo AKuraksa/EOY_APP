@@ -6,28 +6,36 @@
     <title>@ViewData["Title"] - EOY_WEBapp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/css/Navbar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styleLayout.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/EOY_WEBapp.styles.css" asp-append-version="true" />
 </head>
 
 <body>
     <header>
-        <nav>
-            @Html.ActionLink("Sledovací panel", "Index","Home", null, new { @class="a-link" })
-            <div class="subnav">
-                <button class="subnavbtn">Reporty <i class="fa fa-caret-down"></i></button>
-                <div class="subnav-content">
-                    @Html.ActionLink("Aktualní statistika", "Index","Report",null, new { @class="a-link" })
-                </div>
-            </div>
-            <div class="subnav">
-                <button class="subnavbtn">Nastavení <i class="fa fa-caret-down"></i></button>
-                <div class="subnav-content">
-                    @Html.ActionLink("Administrace", "Index","Account",null, new { @class="a-link" })
-                </div>
-            </div>
-        </nav>
+        <div class="item">
+            <h1>Logo Firmy</h1>
+        </div>
+        <div class="item right">
+            <p>Jméno a Příjmení</p>
+            @Html.ActionLink("Odhlásit", "Index", "Login", null, null)
+        </div>
     </header>
+    
+    <nav>
+        @Html.ActionLink("Sledovací panel", "Index","Home", null, new { @class="a-link" })
+        <div class="subnav">
+            <button class="subnavbtn">Reporty <i class="fa fa-caret-down"></i></button>
+            <div class="subnav-content">
+                @Html.ActionLink("Aktualní statistika", "Index","Report",null, new { @class="a-link" })
+            </div>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn">Nastavení <i class="fa fa-caret-down"></i></button>
+            <div class="subnav-content">
+                @Html.ActionLink("Administrace", "Index","Account",null, new { @class="a-link" })
+            </div>
+        </div>
+    </nav>
 
     <div class="container">
         <main role="main" class="pb-3">
