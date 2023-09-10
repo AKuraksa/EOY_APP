@@ -10,9 +10,9 @@
         WindowStyle="None">
     <Grid>
 
-        <PasswordBox Margin="276,200,276,0" Width="248"  FontSize="27" FontFamily="Cascadia Mono SemiBold" Height="50" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="authentificatorId_txt" Margin="276,200,276,0" Width="248"  FontSize="27" FontFamily="Cascadia Mono SemiBold" Height="50" VerticalAlignment="Top"/>
         <TextBlock Margin="0,135,0,0" TextWrapping="Wrap" Text="Zadejte kód Vaší identifikace" RenderTransformOrigin="-0.078,2.376" Height="48" VerticalAlignment="Top" TextAlignment="Center" FontSize="20"/>
-        <Button Content="Ověřit" HorizontalAlignment="Center" Margin="0,255,0,0" VerticalAlignment="Top" Width="220" Height="37"/>
+        <Button Content="Ověřit" HorizontalAlignment="Center" Margin="0,255,0,0" VerticalAlignment="Top" Width="220" Height="37" Click="Button_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="EOY" VerticalAlignment="Top" FontSize="20"/>
 
     </Grid>

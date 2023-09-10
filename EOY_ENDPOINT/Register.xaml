@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EOY_ENDPOINT"
         mc:Ignorable="d"
-        Title="MainWindow" Height="406" Width="264">
+        Title="MainWindow" Height="406" Width="264"
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Center" Margin="0,224,0,0" VerticalAlignment="Top" Width="83"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,49,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,86,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,165,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Zaregistovat zařízení" HorizontalAlignment="Center" Margin="0,224,0,0" VerticalAlignment="Top" Width="201" Click="Button_Click"/>
+        <TextBox x:Name="workplaceName_txt" HorizontalAlignment="Center" Margin="0,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="IP_txt" HorizontalAlignment="Center" Margin="0,86,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="MAC_txt" HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="device_txt" HorizontalAlignment="Center" Margin="0,165,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="72,28,0,0" TextWrapping="Wrap" Text="Název Pracoviště" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="72,70,0,0" TextWrapping="Wrap" Text="IPV4 Adresa" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="72,107,0,0" TextWrapping="Wrap" Text="MAC Adresa" VerticalAlignment="Top"/>
