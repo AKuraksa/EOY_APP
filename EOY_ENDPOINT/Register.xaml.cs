@@ -64,7 +64,7 @@ namespace EOY_ENDPOINT
                 MessageBox.Show(ex.Message);
             }
 
-            MAC_txt.Text= _fce.MacFormatingString(_values.MY_DEVICE_MAC);
+            MAC_txt.Text= _values.MY_DEVICE_MAC;
             device_txt.Text = _values.MY_DEVICE_MAC;
             IP_txt.Text = _values.MY_IPV4_ADRESS;
         }
