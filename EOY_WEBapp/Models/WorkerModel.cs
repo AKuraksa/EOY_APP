@@ -14,8 +14,10 @@ namespace EOY_WEBapp.Models
         public string WorkerFirstName { get; set; }
         [JsonPropertyName("workerLastName")]
         public string WorkerLastName { get; set; }
+
         [JsonPropertyName("authentificatorID")]
         public string AuthentificatorID {get; set;}
+
         [JsonPropertyName("loggedWorkplace")]
         public string? LoggedWorkplace { get;set;}
 

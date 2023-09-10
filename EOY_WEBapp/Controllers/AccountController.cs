@@ -1,6 +1,7 @@
 ﻿using EOY_WEBapp.Data;
 using EOY_WEBapp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp;
 using RestSharp;
 using System.Text.Json;
 
@@ -32,7 +33,7 @@ namespace EOY_WEBapp.Controllers
             return View("CreateAccount");
         }
         
-        public IActionResult Create(LoginModel loginModel)
+        public async Task<IActionResult> Create(LoginModel loginModel)
         {
             var myClient = new RestClient(_fce.GetApiAdress(EOY_Values.LOGIN_CONTROLLER,EOY_Values.POST));
             var request = new RestRequest();
@@ -42,7 +43,7 @@ namespace EOY_WEBapp.Controllers
             request.AddQueryParameter("firstName", loginModel.FirstName);
             request.AddQueryParameter("lastName", loginModel.LastName);
             request.AddQueryParameter("admin", loginModel.Permission);
-            var response = myClient.Post(request);
+            var response = await myClient.PostAsync(request);
             return RedirectToAction("Index");
         }
 
