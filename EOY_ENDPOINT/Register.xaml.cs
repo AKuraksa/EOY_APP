@@ -49,7 +49,7 @@ namespace EOY_ENDPOINT
                 var response = myClient.Get(request);
                 var content = response.Content;
                 var allWorkplaces = JsonSerializer.Deserialize<List<WorkplaceDto>>(content);
-                var getMacWorkplace = allWorkplaces.Where(x => x.Mac == _values.MY_DEVICE_MAC).ToList();
+                var getMacWorkplace = allWorkplaces.Where(x => x.Mac == _values.MyDeviceMac).ToList();
 
                 if (getMacWorkplace.Count > 0)
                 {
@@ -64,8 +64,8 @@ namespace EOY_ENDPOINT
                 MessageBox.Show(ex.Message);
             }
 
-            MAC_txt.Text= _values.MY_DEVICE_MAC;
-            device_txt.Text = _values.MY_DEVICE_MAC;
+            MAC_txt.Text= _values.MyDeviceMac;
+            device_txt.Text = _values.MyDeviceName;
             IP_txt.Text = _values.MY_IPV4_ADRESS;
         }
 

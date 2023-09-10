@@ -28,7 +28,7 @@ namespace IDLoginEOY_APP.Data
         public const string WORKERS_CONTROLLER = "Workers";
         public const string LOGIN_CONTROLLER = "Login";
         //MyDevice
-        public string MY_DEVICE_MAC
+        public string MyDeviceMac
         {
             get {
                 string macAddress = "";
