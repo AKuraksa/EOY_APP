@@ -1,4 +1,5 @@
 ﻿using EOY_WEBapp.Data;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IDLoginEOY_APP.Data
+namespace EOY_WEBapp.Data
 {
     class EOY_Values
     {
@@ -23,14 +24,15 @@ namespace IDLoginEOY_APP.Data
         public const int POST = 5;
         //ApiControllery
         public const string WORKPLACE_CONTROLLER = "Workplace";
-        public const string HISTORY_ERRORS_CONTROLLER = "HistoryError";
+        public const string HISTORY_ERRORS_CONTROLLER = "HistoryErrors";
         public const string SETUP_CONTROLLER = "Setup";
         public const string WORKERS_CONTROLLER = "Workers";
         public const string LOGIN_CONTROLLER = "Login";
         //MyDevice
         public string MyMacAdress
         {
-            get {
+            get
+            {
                 string macAddress = "";
                 foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
                 {
@@ -46,14 +48,17 @@ namespace IDLoginEOY_APP.Data
                 return _functions.MacFormatingString(macAddress);
             }
         }
-        public string  MyDeviceName 
-        { 
-            get {
+        public string MyDeviceName
+        {
+            get
+            {
                 string device = Environment.MachineName;
                 return device;
-                } 
+            }
         }
-        public  string MyIpv4Adress { get
+        public string MyIpv4Adress
+        {
+            get
             {
                 string myIp = "";
                 IPHostEntry iph;
@@ -63,12 +68,14 @@ namespace IDLoginEOY_APP.Data
                 {
                     if (ip.AddressFamily == AddressFamily.InterNetwork)
                     {
-                         myIp = ip.ToString();
+                        myIp = ip.ToString();
 
                     }
                 };
                 return myIp;
             }
-}
+        }
+
+       
     }
 }

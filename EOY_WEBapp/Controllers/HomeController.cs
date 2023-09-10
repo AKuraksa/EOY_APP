@@ -8,7 +8,7 @@ namespace EOY_WEBapp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly Parameters _parameters = new Parameters();
+        private readonly EOY_Values _values = new EOY_Values();
 
 
         public IActionResult Index()

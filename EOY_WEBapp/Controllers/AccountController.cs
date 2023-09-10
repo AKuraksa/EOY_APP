@@ -8,7 +8,7 @@ namespace EOY_WEBapp.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly Parameters _parameters = new Parameters();
+        private readonly EOY_Functions _fce = new EOY_Functions();
        
        
         public IActionResult Index()
@@ -19,7 +19,7 @@ namespace EOY_WEBapp.Controllers
 
         public IActionResult DeleteAccount(LoginModel loginModel)
         {
-            var myClient = new RestClient($"{_parameters.GetApiAdress()}/DeleteByID");
+            var myClient = new RestClient(_fce.GetApiAdress(EOY_Values.LOGIN_CONTROLLER,EOY_Values.DELETE));
             var request = new RestRequest();
             request.AddQueryParameter("id", loginModel.id);
             var response = myClient.Delete(request);
@@ -34,7 +34,7 @@ namespace EOY_WEBapp.Controllers
         
         public IActionResult Create(LoginModel loginModel)
         {
-            var myClient = new RestClient($"{_parameters.GetApiAdress()}/CreateLogin");
+            var myClient = new RestClient(_fce.GetApiAdress(EOY_Values.LOGIN_CONTROLLER,EOY_Values.POST));
             var request = new RestRequest();
             request.AddQueryParameter("username", loginModel.Username);
             request.AddQueryParameter("password", loginModel.Password);
@@ -43,19 +43,25 @@ namespace EOY_WEBapp.Controllers
             request.AddQueryParameter("lastName", loginModel.LastName);
             request.AddQueryParameter("admin", loginModel.Permission);
             var response = myClient.Post(request);
-            return RedirectToAction("Editor");
+            return RedirectToAction("Index");
         }
 
 
 
         private List<LoginModel> UsersList()
         {
-            var myClient = new RestClient($"{_parameters.GetApiAdress()}/All_Data_FROM_Logins");
+            var myClient = new RestClient(_fce.GetApiAdress(EOY_Values.LOGIN_CONTROLLER,EOY_Values.GET));
             var request = new RestRequest();
             var response = myClient.Get(request);
             var content = response.Content;
-            var usersList = JsonSerializer.Deserialize<List<LoginModel>>(content);
-            return usersList;
+            if (content.Any())
+            {
+                var usersList = JsonSerializer.Deserialize<List<LoginModel>>(content);
+                return usersList;
+            }
+            else
+                return null;
+           
         }
     }
 }

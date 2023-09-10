@@ -8,7 +8,7 @@ namespace EOY_WEBapp.Controllers
 {
     public class ReportController : Controller
     {
-        private readonly Parameters _parameters = new Parameters();
+        private readonly EOY_Functions _fce = new EOY_Functions();
 
         public async Task<IActionResult> Index()
         {
@@ -19,14 +19,19 @@ namespace EOY_WEBapp.Controllers
 
         private async Task<List<IssueModels>> ListErrors()
         {
-            var myClient = new RestClient($"{_parameters.GetApiAdress()}/GetAllErrors");
+            var myClient = new RestClient(_fce.GetApiAdress(EOY_Values.HISTORY_ERRORS_CONTROLLER,EOY_Values.GET));
             var request = new RestRequest();
             var response = myClient.Get(request);
             var content = response.Content;
-            var listErrors = JsonSerializer.Deserialize<List<IssueModels>>(content);
+         
             var currentDate = DateTime.UtcNow;
-
-            return listErrors;
+            if (content.Any())
+            {
+                var listErrors = JsonSerializer.Deserialize<List<IssueModels>>(content);
+                return listErrors;
+            }
+            else
+                return null;
         }
     }
 }

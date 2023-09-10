@@ -19,9 +19,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.id)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.Date)
             </th>
@@ -35,54 +33,82 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeError)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Workplace)
-            </td>
-           
-        </tr>
-}
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeError)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Workplace)
+                    </td>
+
+                </tr>
+            }
+        }
 
     </tbody>
 </table>
 
 @{
-  
-    Parameters _parameters = new Parameters();
-    var myClient = new RestClient($"{_parameters.GetApiAdress()}/GetAllErrors");
+
+    EOY_Functions _fce = new EOY_Functions();
+
+    var myClient = new RestClient(_fce.GetApiAdress(EOY_Values.HISTORY_ERRORS_CONTROLLER, EOY_Values.GET));
     var request = new RestRequest();
     var response = myClient.Get(request);
     var content = response.Content;
-    var listErrors = JsonSerializer.Deserialize<List<IssueModels>>(content);
+    if (!string.IsNullOrWhiteSpace(content))
+    {
+        try
+        {
+            var listErrors = JsonSerializer.Deserialize<List<IssueModels>>(content);
+            var currentDate = DateTime.UtcNow;
+            var thisMonthErrors = listErrors.Where(error => error.Date.Year == currentDate.Year && error.Date.Month == currentDate.Month).ToList();
 
-    var currentDate = DateTime.UtcNow;
-    var thisMonthErrors = listErrors.Where(error => error.Date.Year == currentDate.Year && error.Date.Month == currentDate.Month).ToList();
+            var mostFrequentError = listErrors
+                .GroupBy(e => e.TypeError)
+                .OrderByDescending(group => group.Count())
+                .Select(group => group.Key)
+                .FirstOrDefault();
 
-    var mostFrequentError = listErrors
-        .GroupBy(e => e.TypeError)
-        .OrderByDescending(group => group.Count())
-        .Select(group => group.Key)
-        .FirstOrDefault();
+            var mostFrequentWorkplace = listErrors
+               .GroupBy(e => e.Workplace)
+               .OrderByDescending(group => group.Count())
+               .Select(group => group.Key)
+               .FirstOrDefault();
 
-    var mostFrequentWorkplace = listErrors
-       .GroupBy(e => e.Workplace)
-       .OrderByDescending(group => group.Count())
-       .Select(group => group.Key)
-       .FirstOrDefault();
+            <dev class="containerData">
+                @if (thisMonthErrors != null)
+                {
+                    <p>Celkový součet chyb za měsíc: @thisMonthErrors.Count</p>
+                }
+                @if (listErrors != null)
+                {
+                    <p>Celkový součet chyb: @listErrors.Count</p>
+                }
+                @if (!string.IsNullOrEmpty(mostFrequentError))
+                {
+                    <p>Nejčastější chyba: @mostFrequentError</p>
+                }
+                @if (!string.IsNullOrEmpty(mostFrequentWorkplace))
+                {
+                    <p>Nejčastější pracoviště: @mostFrequentWorkplace</p>
+                }
+
+            </dev>
+
+        }
+        catch
+        {
+
+        }
+    }
+
 }
-<dev class="containerData">
-<p >Celkový součet chyb za měsíc: @thisMonthErrors.Count</p>
-<p>Celkový součet chyb: @listErrors.Count</p>
-<p>Nejčastější chyba: @mostFrequentError</p>
-<p>Nejčastější pracoviště: @mostFrequentWorkplace</p>
-</dev>
