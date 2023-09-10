@@ -18,7 +18,12 @@ namespace EOY_WEBapp.Controllers
             return View(result);
 
         }
+        public IActionResult Create()
+        {
+            return View("Create");
+        }
+           
 
-       
+
     }
 }
