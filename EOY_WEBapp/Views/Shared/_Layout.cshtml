@@ -30,13 +30,14 @@
         <div class="subnav">
             <button class="subnavbtn">Reporty <i class="fa fa-caret-down"></i></button>
             <div class="subnav-content">
-                @Html.ActionLink("Aktualní statistika", "Index","Report",null, new { @class="a-link" })
+                @Html.ActionLink("Aktualní statistika", "IndexWorker","Report",null, new { @class="a-link" })
             </div>
         </div>
         <div class="subnav">
             <button class="subnavbtn">Nastavení <i class="fa fa-caret-down"></i></button>
             <div class="subnav-content">
-                @Html.ActionLink("Administrace", "Index","Account",null, new { @class="a-link" })
+                @Html.ActionLink("Správa uživatelů", "Index","Account",null, new { @class="a-link" })
+                @Html.ActionLink("Správa pracovníků", "IndexWorker","Worker",null, new { @class="a-link" })
             </div>
         </div>
     </nav>
