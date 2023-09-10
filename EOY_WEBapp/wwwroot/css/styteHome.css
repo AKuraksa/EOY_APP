@@ -1,0 +1,47 @@
+﻿body{
+    margin: 0;
+    padding: 0;
+}
+
+.workplaces {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.workplace {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin: 5px 10px;
+    padding: 20px 30px;
+    background-color: mediumpurple;
+}
+
+.row{
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: left;
+    
+}
+
+.row-item {
+    width: auto;
+}
+
+p {
+    width: 100%;
+    margin: 0;
+    padding: 10px 5px;
+    white-space: nowrap;
+    line-height: 20px;
+}
+
+#offline {
+    color: red;
+}
+
+#online {
+    color: green;
+}

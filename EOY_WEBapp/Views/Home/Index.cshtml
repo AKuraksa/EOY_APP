@@ -1,59 +1,37 @@
-﻿
-@{
-    ViewData["Title"] = "Home";
-}
-@using EOY_WEBapp.Data
+﻿@using EOY_WEBapp.Data
 @using EOY_WEBapp.Models
 @{
+    ViewData["Title"] = "Home";
     var _fce = new EOY_Functions();
-    var workplacesList = await _fce.EOYrestResponse<WorkplaceModel>(EOY_Values.WORKPLACE_CONTROLLER,EOY_Values.GET);
-    <style>
-        .flexbox {
-        display: flex;
-        flex-wrap: wrap; /* Možná budete potřebovat přidat další pravidla podle vašich potřeb. */
-        }
+    var workplacesList = await _fce.EOYrestResponse<WorkplaceModel>(EOY_Values.WORKPLACE_CONTROLLER, EOY_Values.GET);
+}
 
-        .dataPanel {
-        border-radius : 20px;
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin: 10px;
-        background-color:mediumpurple;
-        color:white;
-        }
-        #offline{
-        color:red;
-        }
-        #online{
-        color:green;
-        #font-dataPanel{
+<link rel="stylesheet" href="~/css/styteHome.css" asp-append-version="true" />
 
-        }
-        }
-    </style>
+<div class="workplaces">
 
-    <div class="flexbox">
-
-        @{
-            int width = 25;
-        }
-        @foreach (var workplace in workplacesList)
-        {
-            <div class="dataPanel">
-                @if (workplace.State)
-                {
-                    <img src="~/Pictures/online.png" alt="online" width="35px" />
-                    <p></p>
-                }
-                else
-                {
-                    <img src="~/Pictures/offline.png" alt="offline" width="35px"  />
-                    <p></p>
-
-                }
-                <p id="font-dataPanel"> <img src="~/Pictures/marker.png" alt="workplace" width="25px" />  @workplace.WorkplaceName</p>
-                <p id="font-dataPanel"> <img src="~/Pictures/computer-speaker.png" alt="devicename" width="25px" />  @workplace.DeviceName</p>
-               
+    @foreach (var workplace in workplacesList)
+    {
+        <div class="workplace">
+            <p>
+                <img src="~/Pictures/marker.png" alt="workplace" width="25px" />
+                @workplace.WorkplaceName
+            </p>
+            <div class="row">
+                <div class="row-item">
+                    <p id="font-dataPanel"> <img src="~/Pictures/computer-speaker.png" alt="devicename" width="25px" />  @workplace.DeviceName</p>
+                </div>
+                <div class="row-item">
+                    @if (workplace.State)
+                    {
+                        <img src="~/Pictures/online.png" alt="online" width="35" />
+                    }
+                    else
+                    {
+                        <img src="~/Pictures/offline.png" alt="offline" width="35px" />
+                    }
+                </div>
+            </div>
                 @if (@workplace.UserLogged != null)
                 {
                     <p> <img src="~/Pictures/hard-hat.png" alt="worker" width="25px" />  @workplace.UserLogged</p>
@@ -62,9 +40,6 @@
                 {
                     <p id="font-dataPanel"> <img src="~/Pictures/users-slash.png" alt="none" width="25px" />  Prázdné pracoviště</p>
                 }
-              
-               
-            </div>
-        }
-    </div>
-}
+        </div>
+    }
+</div>

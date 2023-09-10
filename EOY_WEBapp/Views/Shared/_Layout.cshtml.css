@@ -6,9 +6,8 @@
 }
 
  /*Doupravit footer ať to funguje normalně*/
-.container{
+main{
     padding: 10px 30px;
-    min-height: 74vh;
 }
 
 .footer {
