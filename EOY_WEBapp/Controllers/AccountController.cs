@@ -11,9 +11,9 @@ namespace EOY_WEBapp.Controllers
         private readonly EOY_Functions _fce = new EOY_Functions();
        
        
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<LoginModel> usersList = UsersList();
+            var usersList = await _fce.EOYrestResponse<LoginModel>(EOY_Values.LOGIN_CONTROLLER,EOY_Values.GET);
             return View(usersList);
         }
 
@@ -46,22 +46,5 @@ namespace EOY_WEBapp.Controllers
             return RedirectToAction("Index");
         }
 
-
-
-        private List<LoginModel> UsersList()
-        {
-            var myClient = new RestClient(_fce.GetApiAdress(EOY_Values.LOGIN_CONTROLLER,EOY_Values.GET));
-            var request = new RestRequest();
-            var response = myClient.Get(request);
-            var content = response.Content;
-            if (content.Any())
-            {
-                var usersList = JsonSerializer.Deserialize<List<LoginModel>>(content);
-                return usersList;
-            }
-            else
-                return null;
-           
-        }
     }
 }

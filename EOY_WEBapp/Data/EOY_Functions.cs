@@ -1,10 +1,17 @@
 ﻿using EOY_WEBapp.Data;
+using EOY_WEBapp.Dto;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.DotNet.Scaffolding.Shared.Project;
+using RestSharp;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using static System.Net.WebRequestMethods;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace EOY_WEBapp.Data
 {
@@ -22,8 +29,8 @@ namespace EOY_WEBapp.Data
         }
         public string UniversalApiAdress(string nameOfRoute)
         {
-                string route = $"{UrlAdress}{apiPort}/{nameOfRoute}";
-                return route ;     
+            string route = $"{UrlAdress}{apiPort}/{nameOfRoute}";
+            return route;
         }
         private string Route(string ControllerName, int method)
         {
@@ -85,6 +92,45 @@ namespace EOY_WEBapp.Data
 
             return output.ToString();
         }
-        
+
+        public async Task<List<T>> EOYrestResponse<T>(string apiControllerName, int method)
+        {
+            switch (method)
+            {
+                case EOY_Values.GET:
+                    {
+                        try
+                        {
+                            var myClient = new RestClient(GetApiAdress(apiControllerName, method));
+                            var request = new RestRequest();
+                            var response = await myClient.GetAsync(request);
+                            var content = response.Content;
+                            if (!string.IsNullOrWhiteSpace(content))
+                            {
+                                var objectsList = JsonSerializer.Deserialize<List<T>>(content);
+                                return objectsList;
+                            }
+                            else
+                            {
+                                return new List<T>();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            return new List<T>();
+                        }
+                        break;
+                    }
+                default: return new List<T>();
+
+
+
+
+            }
+        }
     }
+
+
+
 }
+

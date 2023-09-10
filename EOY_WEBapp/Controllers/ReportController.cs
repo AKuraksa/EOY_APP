@@ -1,6 +1,8 @@
 ﻿using EOY_WEBapp.Data;
+using EOY_WEBapp.Dto;
 using EOY_WEBapp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.DotNet.Scaffolding.Shared.Project;
 using RestSharp;
 using System.Text.Json;
 
@@ -12,26 +14,11 @@ namespace EOY_WEBapp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<IssueModels> listErrors = await ListErrors();
-            return View(listErrors);
+            var result = await _fce.EOYrestResponse<IssueModels>(EOY_Values.HISTORY_ERRORS_CONTROLLER, EOY_Values.GET);
+            return View(result);
 
         }
 
-        private async Task<List<IssueModels>> ListErrors()
-        {
-            var myClient = new RestClient(_fce.GetApiAdress(EOY_Values.HISTORY_ERRORS_CONTROLLER,EOY_Values.GET));
-            var request = new RestRequest();
-            var response = myClient.Get(request);
-            var content = response.Content;
-         
-            var currentDate = DateTime.UtcNow;
-            if (content.Any())
-            {
-                var listErrors = JsonSerializer.Deserialize<List<IssueModels>>(content);
-                return listErrors;
-            }
-            else
-                return null;
-        }
+       
     }
 }

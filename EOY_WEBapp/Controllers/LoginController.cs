@@ -45,10 +45,9 @@ namespace EOY_WEBapp.Controllers
 				var userdata = user.FirstOrDefault();
 				if(user != null)
 				{
-                    TempData["Fullname"] = userdata.FullName;
-
                     if (user.Count() == 1)
                     {
+                        TempData["Fullname"] = userdata.FullName;
                         return RedirectToAction("Index", "Home"); // Přesměrování na domovskou stránku
                     }
                 }

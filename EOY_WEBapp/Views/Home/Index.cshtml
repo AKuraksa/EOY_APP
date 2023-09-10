@@ -2,5 +2,69 @@
 @{
     ViewData["Title"] = "Home";
 }
+@using EOY_WEBapp.Data
+@using EOY_WEBapp.Models
+@{
+    var _fce = new EOY_Functions();
+    var workplacesList = await _fce.EOYrestResponse<WorkplaceModel>(EOY_Values.WORKPLACE_CONTROLLER,EOY_Values.GET);
+    <style>
+        .flexbox {
+        display: flex;
+        flex-wrap: wrap; /* Možná budete potřebovat přidat další pravidla podle vašich potřeb. */
+        }
 
-<h1>Toto je úvodní stránka</h1>
+        .dataPanel {
+        border-radius : 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        background-color:mediumpurple;
+        color:white;
+        }
+        #offline{
+        color:red;
+        }
+        #online{
+        color:green;
+        #font-dataPanel{
+
+        }
+        }
+    </style>
+
+    <div class="flexbox">
+
+        @{
+            int width = 25;
+        }
+        @foreach (var workplace in workplacesList)
+        {
+            <div class="dataPanel">
+                @if (workplace.State)
+                {
+                    <img src="~/Pictures/online.png" alt="online" width="35px" />
+                    <p></p>
+                }
+                else
+                {
+                    <img src="~/Pictures/offline.png" alt="offline" width="35px"  />
+                    <p></p>
+
+                }
+                <p id="font-dataPanel"> <img src="~/Pictures/marker.png" alt="workplace" width="25px" />  @workplace.WorkplaceName</p>
+                <p id="font-dataPanel"> <img src="~/Pictures/computer-speaker.png" alt="devicename" width="25px" />  @workplace.DeviceName</p>
+               
+                @if (@workplace.UserLogged != null)
+                {
+                    <p> <img src="~/Pictures/hard-hat.png" alt="worker" width="25px" />  @workplace.UserLogged</p>
+                }
+                else
+                {
+                    <p id="font-dataPanel"> <img src="~/Pictures/users-slash.png" alt="none" width="25px" />  Prázdné pracoviště</p>
+                }
+              
+               
+            </div>
+        }
+    </div>
+}
